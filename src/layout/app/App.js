@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 // Layout Components
 import DocumentHead from '../document-head/DocumentHead'
@@ -10,8 +10,6 @@ import Header from '../header/Header'
 import Navigation from '../navigation/Navigation'
 import Routes from '../../Routes'
 
-import Masthead from '../masthead/Masthead'
-
 class App extends Component {
   render () {
     return (
@@ -20,8 +18,7 @@ class App extends Component {
           <DocumentHead />
           <A11yNavigation />
           <PreHeader />
-          <Route path="/:foo" component={Header} />
-          <Route exact path="/" component={Masthead} />
+          <Header />
 
           <div className="page-container content-center content-gutter">
             <div className="grid grid--full-height">

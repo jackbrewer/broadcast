@@ -8,7 +8,7 @@ import IndexPage from './page/IndexPage'
 import NotFoundPage from './page/NotFoundPage'
 
 // Component Pages
-import UiPage from './page/ui/UiPage'
+import ArticleForm from './page/page/ArticleForm'
 
 class Routes extends Component {
   render () {
@@ -17,7 +17,7 @@ class Routes extends Component {
         <Switch>
           <Route exact path="/" component={IndexPage} />
 
-          <Route exact path="/ui" component={UiPage} />
+          <Route exact path="/page/article-form" component={ArticleForm} />
 
           <Route component={NotFoundPage} />
         </Switch>
