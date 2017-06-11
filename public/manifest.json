@@ -1,15 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
+  "name": "Broadcast",
+  "short_name": "Broadcast",
+  "description": "Strapline to appear here",
+  "start_url": ".?launcher=true",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#57a65e",
+
+  "icons": [{
+      "src": "/asset/image/meta/apple-touch-icon-precomposed-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }, {
+      "src": "icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
-    }
-  ],
-  "start_url": "./index.html",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+    }]
 }
