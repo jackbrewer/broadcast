@@ -42,7 +42,7 @@ class Form extends Component {
   }
 
   render () {
-    const { action, children, className, method, onSubmit, submitText, ...other } = this.props
+    const { action, children, className, method, onChange, onSubmit, submitText, ...other } = this.props
     const formClasses = classNames(
       'form',
       className
@@ -54,6 +54,7 @@ class Form extends Component {
         className={formClasses}
         method={method}
         onSubmit={(e) => onSubmit(e, this.state)}
+        onChange={(e) => onChange(e, this.state)}
         {...other}
         >
         {Children.map(children,
@@ -81,6 +82,7 @@ Form.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   method: PropTypes.oneOf([ 'get', 'post' ]),
+  onChange: PropTypes.func,
   onSubmit: PropTypes.func,
   submitText: PropTypes.string
 }

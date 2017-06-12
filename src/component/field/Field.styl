@@ -32,3 +32,24 @@
 
   .field--warning &
     color $color--warning
+
+
+.field-fade-enter
+  opacity 0.01
+  max-height 0
+  overflow hidden
+
+.field-fade-enter.field-fade-enter-active
+  opacity 1
+  transition max-height 250ms ease-in, opacity 250ms 250ms ease-in
+  max-height 120px
+
+.field-fade-leave
+  opacity 1
+  overflow hidden  max-height 0
+  max-height 120px
+
+.field-fade-leave.field-fade-leave-active
+  opacity 0.01
+  transition max-height 250ms 250ms ease-in, opacity 250ms ease-in
+  max-height 0
