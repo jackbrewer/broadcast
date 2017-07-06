@@ -8,15 +8,12 @@
     "build": "node scripts/build.js",
     "lint:js": "eslint . --cache",
     "test": "node scripts/test.js --env=jsdom",
-    "watch:styles": "npm run build:styles -- -w",
-    "watch": "concurrently --names \"webpack,stylus\" --prefix name \"npm run start\" \"npm run watch:styles\" --prefix-colors \"bgBlue.bold,bgMagenta.bold\"",
     "fix:js": "npm run js:lint -- --fix"
   },
   "dependencies": {
     "autoprefixer": "^7.1.1",
     "babel-plugin-inline-react-svg": "^0.4.0",
     "classnames": "^2.2.5",
-    "concurrently": "^3.4.0",
     "cssnano": "^3.10.0",
     "draft-js": "^0.10.1",
     "enzyme": "^2.8.2",
