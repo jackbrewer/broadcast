@@ -7,11 +7,12 @@
 
 .field
   text-align left
-  margin-bottom $spacing--default
+  margin-bottom $spacing--default * 2
 
 .field__question
   margin-bottom ($spacing--default / 2)
   display inline-block
+  color $color--mid-grey
 
 .field__assistance
   margin-top ($spacing--default / 2)
@@ -53,3 +54,29 @@
   opacity 0.01
   transition max-height 250ms 250ms ease-in, opacity 250ms ease-in
   max-height 0
+
+
+.field--feature
+  .field__question
+    margin-bottom 0
+
+
+
+
+.field--inline-muted
+  display flex
+
+  .field__answer
+    flex-grow 1
+
+  .field__question
+    margin-bottom 0
+    margin-right 5px
+    display flex
+    align-items center
+    border-bottom 1px solid transparent // Match control offset
+
+    & > *:last-child
+
+      &:after
+        content ':'

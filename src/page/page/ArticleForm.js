@@ -1,9 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import slug from 'slugg'
+import classNames from 'classnames'
 
 import { CSSTransitionGroup } from 'react-transition-group'
 
+import Button from '../../component/button/Button'
 import Field from '../../component/field/Field'
 
 class ArticleForm extends React.Component {
@@ -11,7 +13,7 @@ class ArticleForm extends React.Component {
     super()
 
     this.state = {
-      headline: 'Test',
+      headline: '',
       shortHeadline: '',
       slug: null
     }
@@ -21,6 +23,13 @@ class ArticleForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentWillMount () {
+    const localState = localStorage.getItem('articleForm')
+
+    if (!localState) return
+    this.setState(JSON.parse(localState))
+  }
+
   handleInputChange (event) {
     const target = event.target
     const name = target.name
@@ -28,7 +37,7 @@ class ArticleForm extends React.Component {
       ? this.handleCheckboxChange(name, target.value)
       : target.value
     this.setState({ [name]: value })
-    console.log(name, value)
+    // console.log(name, value)
   }
 
   handleCheckboxChange (name, value) {
@@ -39,12 +48,17 @@ class ArticleForm extends React.Component {
     return valueArr.sort()
   }
 
-  handleSubmit (e, data) {
+  handleSubmit (e) {
     e.preventDefault()
-    alert('Form submitted: ' + JSON.stringify(data, null, 2)) // eslint-disable-line no-undef
+    console.log(e)
+    alert('Form submitted: ' + JSON.stringify(this.state, null, 2)) // eslint-disable-line no-undef
+    localStorage.setItem('articleForm', JSON.stringify(this.state))
   }
 
   render () {
+    const shortHeadlineMin = 20
+    const shortHeadlineMax = 50
+
     return (
       <div className="prose">
         <Helmet title="Article Form" />
@@ -63,20 +77,26 @@ class ArticleForm extends React.Component {
             type="text"
             onChange={this.handleInputChange}
             value={this.state.headline}
+            modifiers={[ 'feature' ]}
+            controlClassName={classNames(
+              'control--medium-type',
+              { 'control--large-type': this.state.headline.length <= shortHeadlineMin }
+            )}
           />
 
           <CSSTransitionGroup
             transitionName="field-fade"
             transitionEnterTimeout={500}
             transitionLeaveTimeout={500}>
-            {this.state.headline.length > 10 &&
+            {(this.state.shortHeadline !== '' || this.state.headline.length > shortHeadlineMin) &&
               <Field
                 label="Short Headline"
                 name="shortHeadline"
                 type="text"
                 onChange={this.handleInputChange}
                 value={this.state.shortHeadline}
-                assistance={`Recommended maximum length: ${this.state.shortHeadline.length}/100`}
+                assistance={`Recommended maximum length: ${this.state.shortHeadline.length}/${shortHeadlineMax}`}
+                modifiers={[ 'feature' ]}
               />
             }
           </CSSTransitionGroup>
@@ -88,9 +108,10 @@ class ArticleForm extends React.Component {
             type="text"
             onChange={this.handleInputChange}
             value={this.state.slug !== null ? this.state.slug : slug(this.state.headline)}
+            modifiers={[ 'feature', 'inline-muted' ]}
           />
 
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </form>
       </div>
     )

@@ -14,6 +14,7 @@ $control--text
   font-size inherit
   background-color $color--white
   border-radius 0
+  color inherit
   &:focus
     border-color $color--primary
     outline 0
@@ -53,3 +54,37 @@ $control--text
   line-height 1
   font-size inherit
   font-family inherit
+
+
+
+
+.control--feature
+  border 0
+  border-bottom 1px solid $color--mid-grey
+  padding-left 0
+  padding-right 0
+
+  transition all 300ms ease-out
+  &[value='']:not(:focus)
+    background-color tint($color--primary, 90%)
+
+.control--medium-type
+  font-size 30px
+
+.control--large-type
+  font-size 40px
+
+
+.control--inline-muted
+  border 0
+  color $color--mid-grey
+  padding-left 0
+  padding-right 0
+  transition all 300ms ease-out
+  border-bottom 1px solid transparent
+
+  &:hover
+  &:focus
+  &:active
+    color inherit
+    border-bottom 1px solid
