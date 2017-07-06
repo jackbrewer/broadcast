@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import './CustomSelect.styl'
 
 import NativeSelectControl from './NativeSelect'
 

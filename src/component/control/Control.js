@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './Control.styl'
 
 import CheckControl from './check/Check'
 import SelectControl from './select/Select'

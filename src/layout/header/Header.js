@@ -1,4 +1,5 @@
 import React from 'react'
+import './Header.styl'
 
 import SiteTitle from '../site-title/SiteTitle'
 import SiteSwitch from '../site-switch/SiteSwitch'

@@ -1,4 +1,5 @@
 import React from 'react'
+import './PreHeader.styl'
 
 const PreHeader = () => (
   <div className="pre-header">

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
+import '../../asset/stylus/index.styl'
 
 // Layout Components
 import DocumentHead from '../document-head/DocumentHead'

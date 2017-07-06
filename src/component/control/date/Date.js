@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import format from 'date-fns/format'
+import './Date.styl'
 
 import TextControl from '../text/Text'
 import Icon from '../../icon/Icon'

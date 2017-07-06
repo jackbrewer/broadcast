@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './SiteSwitch.styl'
 
 import Svg from '../../component/svg/Svg'
 

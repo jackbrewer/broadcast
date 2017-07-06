@@ -1,4 +1,5 @@
 import React from 'react'
+import './A11yNavigation.styl'
 
 const A11yNavigation = () => (
   <div className="a11y-navigation">
