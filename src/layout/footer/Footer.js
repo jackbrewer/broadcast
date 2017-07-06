@@ -7,7 +7,7 @@ const Footer = () => (
     role="contentinfo"
     >
     <div className="content-center content-gutter">
-      <small>© {(new Date()).getFullYear()} Picks Broadcast. All rights reserved.</small>
+      <small>© {(new Date()).getFullYear()} Picks Backline. All rights reserved.</small>
     </div>
   </footer>
 )

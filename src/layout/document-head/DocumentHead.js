@@ -7,8 +7,8 @@ const DocumentHead = ({ location }) => {
   // Only use for non-static head elements. Put the rest directly in the HTML
   return (
     <Helmet
-      defaultTitle="Picks Broadcast"
-      titleTemplate="%s | Picks Broadcast"
+      defaultTitle="Picks Backline"
+      titleTemplate="%s | Picks Backline"
       link={[ { href: `https://picks.tech${location.pathname}`, rel: 'canonical' } ]}
     />
   )

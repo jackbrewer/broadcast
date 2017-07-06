@@ -1,6 +1,6 @@
 {
-  "name": "Picks Broadcast",
-  "short_name": "Picks Broadcast",
+  "name": "Picks Backline",
+  "short_name": "Picks Backline",
   "description": "Strapline to appear here",
   "start_url": ".?launcher=true",
   "display": "standalone",

@@ -15,7 +15,7 @@ const SiteTitle = ({ href, isFeature }) => {
       {...href && { to: href }}
       >
       <Icon type="pick" />
-      Picks <span>Broadcast</span>
+      Picks <span>Backline</span>
     </SiteTitleEl>
   )
 }
