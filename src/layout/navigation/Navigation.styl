@@ -7,16 +7,23 @@
 .navigation
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
+  background-color $color--dark-grey
+  +width-min($mq--tablet)
+    flex 1 1 0
+    display flex
 
-  position sticky
-  top $spacing--default
-  margin-bottom $spacing--default
 
-.navigation__group
-  //
+.navigation__inner
+  flex 1 1 auto
+  overflow-y auto
+  min-height 0
+  padding $spacing--default
 
   h3
     font-weight bold
+
+    &:not(:first-child)
+      margin-top $spacing--default
 
   li
     display block
@@ -34,7 +41,8 @@
 
 
 .navigation__link
-  color $color--black
+  display block
+  color $color--white
 
   &.is-active
     color $color--primary
