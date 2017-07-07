@@ -5,9 +5,14 @@
 
 .user-navigation
   width 100%
+  max-width 100%
   padding $spacing--default
   line-height 1
-  background-color $color--grey
+  background-color $color--grey-25
+  border-bottom 1px solid $color--grey-50
+  color $color--white
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
 
 .user-navigation__inner
   display flex
@@ -16,7 +21,7 @@
   //
 
 .user-navigation__content
-  flex 1 0 auto
+  flex 1 1 auto
   padding-left $spacing--default * 0.5
 
 .user-navigation__name

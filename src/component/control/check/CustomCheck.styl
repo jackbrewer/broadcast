@@ -21,7 +21,7 @@
   background $color--white
   vertical-align middle
   margin-right rem(10)
-  border 1px solid $color--grey
+  border 1px solid $color--grey-50
   border-radius $border-radius--default
   transition border-color 0.4s ease
 
@@ -31,7 +31,7 @@
   // Hover and focus states
   .custom-check__control:hover:not([disabled]) ~ &
   .custom-check__control:focus ~ &
-    border-color $color--dark-grey
+    border-color $color--grey-25
     transition-duration 0.1s
 
   // Checked state
@@ -47,7 +47,7 @@
   // Disabled state
   .custom-check__control:disabled ~ &
     opacity 0.6
-    border-color $color--grey
+    border-color $color--grey-50
     cursor not-allowed
 
   &:after
@@ -84,7 +84,7 @@
 
   // Disabled tick colour
   .custom-check__control:disabled ~ .custom-check__indicator:after
-    border-color $color--grey
+    border-color $color--grey-50
 
 
 //
@@ -107,4 +107,4 @@
 
   // Disabled circle colour
   .custom-check__control:disabled ~ .custom-check__indicator:after
-    background $color--grey
+    background $color--grey-50
