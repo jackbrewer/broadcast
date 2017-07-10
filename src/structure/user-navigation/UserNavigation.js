@@ -13,7 +13,7 @@ const UserNavigation = ({ isLoggedIn }) => (
     <div className="user-navigation__inner">
 
       <div className="user-navigation__avatar">
-        <Avatar src="https://img.clock.co.uk/40" alt="" />
+        <Avatar src="https://img.clock.co.uk/40" name="Firstname Lastname" />
       </div>
 
       <div className="user-navigation__content">

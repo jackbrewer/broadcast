@@ -10,6 +10,5 @@ describe('Component: Header', function () {
     assert.equal(wrapper.type(), 'header')
     assert.equal(wrapper.prop('className'), 'header')
     assert.equal(wrapper.find('SiteTitle').length, 1)
-    assert.equal(wrapper.find('SiteSwitch').length, 1)
   })
 })
