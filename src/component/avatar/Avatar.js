@@ -3,33 +3,53 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import './Avatar.styl'
 
-const Avatar = ({ className, src, modifiers, alt, size }) => {
+const Avatar = ({ className, modifiers, name, size, src }) => {
+  if (!name || name === '') return null
+
+  const initials = name.split(/[ -]/g).map(word => word[0].toUpperCase())
+  const fontSize = Math.floor(initials.length > 1 ? (size * 0.95 / initials.length) : (size * 0.6))
   const avatarClassNames = classNames(
     'avatar',
-    { 'avatar--custom-size': size },
+    { 'avatar--has-image': src },
     modifiers && modifiers.map(modifierClass => `avatar--${modifierClass}`),
     className
   )
+
   return (
     <div
       className={avatarClassNames}
       style={{
-        width: size && `${size}px`,
-        height: size && `${size}px`,
-        lineHeight: size && `${size}px`
+        fontSize,
+        height: size,
+        lineHeight: `${size}px`,
+        width: size
       }}
       >
-      <img src={src} alt={alt} />
+      {src &&
+        <img src={src} alt={name} />
+      }
+      {(!src && initials) &&
+        <div
+          className="avatar__initials"
+          style={{ fontSize }}
+          >
+          {initials}
+        </div>
+      }
     </div>
   )
 }
 
+Avatar.defaultProps = {
+  size: 50
+}
+
 Avatar.propTypes = {
   className: PropTypes.string,
-  src: PropTypes.string.isRequired,
   modifiers: PropTypes.arrayOf(PropTypes.string),
-  alt: PropTypes.string.isRequired,
-  size: PropTypes.number
+  name: PropTypes.string.isRequired,
+  size: PropTypes.number,
+  src: PropTypes.string
 }
 
 export default Avatar
