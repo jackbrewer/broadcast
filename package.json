@@ -8,7 +8,9 @@
     "build": "node scripts/build.js",
     "lint:js": "eslint . --cache",
     "test": "node scripts/test.js --env=jsdom",
-    "fix:js": "npm run js:lint -- --fix"
+    "fix:js": "npm run js:lint -- --fix",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "autoprefixer": "^7.1.1",
@@ -33,6 +35,10 @@
     "stylus-mixins": "^0.4.0"
   },
   "devDependencies": {
+    "@storybook/addon-info": "^3.1.6",
+    "@storybook/addon-knobs": "^3.1.8",
+    "@storybook/addon-options": "^3.1.6",
+    "@storybook/react": "^3.1.8",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
