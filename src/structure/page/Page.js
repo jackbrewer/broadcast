@@ -1,21 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import './Page.styl'
 
-import PageMeta from '../page-meta/PageMeta'
+const Page = ({ children, heading, slug }) => (
+  <div className="page">
+    <Helmet title={heading} />
 
-const Page = ({ children, name, slug }) => (
-  <div className="page prose">
-    <Helmet title={name} />
-    <h1>{name}</h1>
-    <PageMeta name={name} />
-    {children}
+    <div className="page__header">
+      <h1 className="page__heading heading">{heading}</h1>
+    </div>
+
+    <div className="page__content">
+      {children}
+    </div>
   </div>
 )
 
 Page.propTypes = {
   children: PropTypes.node,
-  name: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
   slug: PropTypes.string
 }
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from 'react-snapshot'
-import Layout from './structure/layout/Layout'
+import App from './structure/app/App'
 
-render(<Layout />, document.getElementById('root'))
+render(<App />, document.getElementById('root'))
 
 if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   window.addEventListener('load', () => navigator.serviceWorker.register('/service-worker.js'))

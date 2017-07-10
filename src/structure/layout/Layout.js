@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
-import '../../asset/stylus/index.styl'
 import './Layout.styl'
 
 // Layout Components
@@ -15,25 +13,23 @@ import Content from '../content/Content'
 class Layout extends Component {
   render () {
     return (
-      <Router>
-        <div className="layout">
+      <div className="layout">
 
-          <DocumentHead />
-          <A11yNavigation />
+        <DocumentHead />
+        <A11yNavigation />
 
-          <div className="layout__item">
-            <Header />
-            <UserNavigation />
-            <Navigation />
-          </div>
-
-          <div className="layout__item layout__item--grow">
-            <Toolbar />
-            <Content />
-          </div>
-
+        <div className="layout__item">
+          <Header />
+          <UserNavigation />
+          <Navigation />
         </div>
-      </Router>
+
+        <div className="layout__item layout__item--grow">
+          <Toolbar />
+          <Content />
+        </div>
+
+      </div>
     )
   }
 }

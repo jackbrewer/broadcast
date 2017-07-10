@@ -16,6 +16,8 @@ const Navigation = () => (
       <h3>Test Pages</h3>
       <ul className="list--unstyled">
         <NavigationItem to="/page/article-form" text="Article Form" />
+        <NavigationItem to="/page/list-page" text="List Page" />
+        <NavigationItem to="/login" text="Login" />
       </ul>
 
       <h3>Content</h3>
