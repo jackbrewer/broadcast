@@ -14,7 +14,7 @@ setOptions({
 
 setDefaults({
   // inline: true,
-  // maxPropsIntoLine: 1,
+  maxPropsIntoLine: 1,
   // maxPropObjectKeys: 10,
   // maxPropArrayLength: 10,
   // maxPropStringLength: 100,

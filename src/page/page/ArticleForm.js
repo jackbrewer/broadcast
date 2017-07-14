@@ -5,6 +5,7 @@ import classNames from 'classnames'
 
 import { CSSTransitionGroup } from 'react-transition-group'
 
+import Page from '../../structure/page/Page'
 import Button from '../../component/button/Button'
 import Field from '../../component/field/Field'
 
@@ -60,60 +61,62 @@ class ArticleForm extends React.Component {
     const shortHeadlineMax = 50
 
     return (
-      <div className="prose">
-        <Helmet title="Article Form" />
-        <h1>Article Form</h1>
+      <Page heading="List page">
+        <div className="prose">
+          <Helmet title="Article Form" />
+          <h1>Article Form</h1>
 
-        <form
-          action=""
-          method="get"
-          onSubmit={this.handleSubmit}
-          >
+          <form
+            action=""
+            method="get"
+            onSubmit={this.handleSubmit}
+            >
 
-          <Field
-            label="Headline"
-            name="headline"
-            required
-            type="text"
-            onChange={this.handleInputChange}
-            value={this.state.headline}
-            modifiers={[ 'feature' ]}
-            controlClassName={classNames(
-              'control--medium-type',
-              { 'control--large-type': this.state.headline.length <= shortHeadlineMin }
-            )}
-          />
+            <Field
+              label="Headline"
+              name="headline"
+              required
+              type="text"
+              onChange={this.handleInputChange}
+              value={this.state.headline}
+              modifiers={[ 'feature' ]}
+              controlClassName={classNames(
+                'control--medium-type',
+                { 'control--large-type': this.state.headline.length <= shortHeadlineMin }
+              )}
+            />
 
-          <CSSTransitionGroup
-            transitionName="field-fade"
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={500}>
-            {(this.state.shortHeadline !== '' || this.state.headline.length > shortHeadlineMin) &&
-              <Field
-                label="Short Headline"
-                name="shortHeadline"
-                type="text"
-                onChange={this.handleInputChange}
-                value={this.state.shortHeadline}
-                assistance={`Recommended maximum length: ${this.state.shortHeadline.length}/${shortHeadlineMax}`}
-                modifiers={[ 'feature' ]}
-              />
-            }
-          </CSSTransitionGroup>
+            <CSSTransitionGroup
+              transitionName="field-fade"
+              transitionEnterTimeout={500}
+              transitionLeaveTimeout={500}>
+              {(this.state.shortHeadline !== '' || this.state.headline.length > shortHeadlineMin) &&
+                <Field
+                  label="Short Headline"
+                  name="shortHeadline"
+                  type="text"
+                  onChange={this.handleInputChange}
+                  value={this.state.shortHeadline}
+                  assistance={`Recommended maximum length: ${this.state.shortHeadline.length}/${shortHeadlineMax}`}
+                  modifiers={[ 'feature' ]}
+                />
+              }
+            </CSSTransitionGroup>
 
-          <Field
-            label="Slug"
-            name="slug"
-            required
-            type="text"
-            onChange={this.handleInputChange}
-            value={this.state.slug !== null ? this.state.slug : slug(this.state.headline)}
-            modifiers={[ 'feature', 'inline-muted' ]}
-          />
+            <Field
+              label="Slug"
+              name="slug"
+              required
+              type="text"
+              onChange={this.handleInputChange}
+              value={this.state.slug !== null ? this.state.slug : slug(this.state.headline)}
+              modifiers={[ 'feature', 'inline-muted' ]}
+            />
 
-          <Button type="submit">Submit</Button>
-        </form>
-      </div>
+            <Button type="submit">Submit</Button>
+          </form>
+        </div>
+      </Page>
     )
   }
 }

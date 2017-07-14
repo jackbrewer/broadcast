@@ -5,14 +5,18 @@ import './Page.styl'
 
 const Page = ({ children, heading, slug }) => (
   <div className="page">
-    <Helmet title={heading} />
+    <div className="content-gutter content-center">
 
-    <div className="page__header">
-      <h1 className="page__heading heading">{heading}</h1>
-    </div>
+      <Helmet title={heading} />
 
-    <div className="page__content">
-      {children}
+      <div className="page__header">
+        <h1 className="page__heading heading">{heading}</h1>
+      </div>
+
+      <div className="page__content">
+        {children}
+      </div>
+
     </div>
   </div>
 )

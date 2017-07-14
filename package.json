@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:styles": "stylus -m -c -u stylus-mixins -u responsive-grid -u poststylus --with \"['autoprefixer']\" ./src/asset/stylus/index*.styl -o ./src/asset/css/",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "lint:js": "eslint . --cache",
     "test": "node scripts/test.js --env=jsdom",
     "fix:js": "npm run js:lint -- --fix",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "lint:js": "eslint . --cache",
+    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
     "autoprefixer": "^7.1.1",
@@ -23,6 +22,8 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-helmet": "^5.1.3",
+    "react-highlight-words": "^0.8.0",
+    "react-motion": "^0.5.0",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-snapshot": "^1.1.0",
