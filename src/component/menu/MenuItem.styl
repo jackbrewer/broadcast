@@ -1,0 +1,35 @@
+//
+// MENU ITEM
+// =========
+//
+
+
+.menu-item
+  display block
+  text-align left
+  width 100%
+  white-space nowrap
+  padding 5px 15px
+  color $color--grey-10
+
+  &:hover
+  &:focus
+  &:active
+    background-color $color--grey-95
+    text-decoration none
+
+  &.is-disabled
+    color $color--grey-75
+    cursor not-allowed
+    pointer-events none
+
+  &.is-selected
+    color $color--white
+    background-color $color--primary
+
+.menu-item__subtext
+  font-size 0.75em
+  color $color--grey-50
+
+  .menu-item.is-selected &
+    color $color--white
