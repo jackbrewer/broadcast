@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import './MenuItem.styl'
 
-const MenuItem = ({ children, disabled, href, id, onClick, selected, subText, text }) => {
+const MenuItem = ({ children, disabled, href, id, onClick, selected, subText, text, ...other }) => {
   const MenuItemEl = (href && !disabled) ? Link : 'button'
 
   return (
@@ -22,6 +22,7 @@ const MenuItem = ({ children, disabled, href, id, onClick, selected, subText, te
       {...onClick && { onClick }}
       id={id}
       role="menuitem"
+      {...other}
       >
       {text}
       {subText &&

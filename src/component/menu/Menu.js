@@ -3,11 +3,12 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import './Menu.styl'
 
-const Menu = ({ bordered, children }) => (
+const Menu = ({ bordered, children, className }) => (
   <div
     className={classNames(
       'menu',
-      { 'menu--bordered': bordered }
+      { 'menu--bordered': bordered },
+      className
     )}
     role="menu"
     >
@@ -17,7 +18,8 @@ const Menu = ({ bordered, children }) => (
 
 Menu.propTypes = {
   bordered: PropTypes.bool,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string
 }
 
 export default Menu
