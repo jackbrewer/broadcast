@@ -11,25 +11,45 @@
   white-space nowrap
   padding 5px 15px
   color $color--grey-10
+  transition all $transition--default-out ease-out
 
   &:hover
-  &:focus
-  &:active
     background-color $color--grey-95
     text-decoration none
+    transition-duration $transition--default-in
 
-  &.is-disabled
-    color $color--grey-75
-    cursor not-allowed
-    pointer-events none
-
-  &.is-selected
-    color $color--white
-    background-color $color--primary
+  &:focus
+    outline 2px solid $color--grey-10
+    outline-offset -2px
+    text-decoration none
+    transition-duration $transition--default-in
 
 .menu-item__subtext
   font-size 0.75em
   color $color--grey-50
 
-  .menu-item.is-selected &
+
+//
+// DISABLED
+//
+
+.menu-item.is-disabled
+  color $color--grey-75
+  cursor not-allowed
+  pointer-events none
+
+
+//
+// SELECTED
+//
+
+.menu-item.is-selected
+  color $color--white
+  background-color $color--primary
+
+  &:hover
+    background-color tint($color--primary, 20%)
+    text-decoration none
+
+  .menu-item__subtext
     color $color--white

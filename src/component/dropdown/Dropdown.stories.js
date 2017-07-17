@@ -4,8 +4,8 @@ import { storiesOf } from '@storybook/react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import Dropdown from './Dropdown'
+import MultiSelect from '../multi-select/MultiSelect'
 import Menu from '../menu/Menu'
-import MenuMultiSelect from '../menu/MenuMultiSelect'
 import MenuItem from '../menu/MenuItem'
 import MenuHeading from '../menu/MenuHeading'
 import MenuDivider from '../menu/MenuDivider'
@@ -57,14 +57,14 @@ stories.addWithInfo(
     return (
       <Router>
         <div>
-          <p>Type 3+ characters to filter, click to select. See console for current selection.</p>
+          <p>Type 2+ characters to filter, click to select. See console for current selection.</p>
           <br />
           <Dropdown>
-            <MenuMultiSelect search onSelection={handleSelection} maxHeight={225}>
+            <MultiSelect search summary onSelection={handleSelection} maxHeight={225}>
               {items.map((item, i) => (
                 <MenuItem key={`item-${i}`} id={`${i}`} {...item} />
               ))}
-            </MenuMultiSelect>
+            </MultiSelect>
           </Dropdown>
         </div>
       </Router>

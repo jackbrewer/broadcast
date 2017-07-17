@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import Menu from './Menu'
-import MenuMultiSelect from './MenuMultiSelect'
 import MenuItem from './MenuItem'
 import MenuHeading from './MenuHeading'
 import MenuDivider from './MenuDivider'
@@ -28,78 +27,4 @@ stories.addWithInfo(
       </Menu>
     </Router>
   )
-)
-
-stories.addWithInfo(
-  'Multi-select',
-  () => {
-    const items = [
-      { text: 'One Apple' },
-      { text: 'Two Apples' },
-      { text: 'Three Melons', subText: 'Appleton' },
-      { text: 'Four Oranges' },
-      { text: 'Five Strawberries', subText: 'Raspberries' },
-      { text: 'Six Pineapples' },
-      { text: 'Seven Grapes' }
-    ]
-
-    function handleSelection (itemIds = []) {
-      const formattedSelected = []
-      itemIds.sort().map(itemId => {
-        formattedSelected.push(items[itemId].text)
-      })
-
-      console.log(formattedSelected.length ? formattedSelected.join(', ') : 'Nothing selected')
-    }
-
-    return (
-      <Router>
-        <div>
-          <p>See console for current selection</p>
-          <MenuMultiSelect bordered onSelection={handleSelection}>
-            {items.map((item, i) => (
-              <MenuItem key={`item-${i}`} id={`${i}`} {...item} />
-            ))}
-          </MenuMultiSelect>
-        </div>
-      </Router>
-    )
-  }
-)
-
-stories.addWithInfo(
-  'Multi-select with search',
-  () => {
-    const items = [
-      { text: 'One Apple' },
-      { text: 'Two Apples' },
-      { text: 'Three Melons', subText: 'Appleton' },
-      { text: 'Four Oranges' },
-      { text: 'Five Strawberries', subText: 'Raspberries' },
-      { text: 'Six Pineapples' },
-      { text: 'Seven Grapes' }
-    ]
-
-    function handleSelection (itemIds = []) {
-      const formattedSelected = []
-      itemIds.sort().map(itemId => {
-        formattedSelected.push(items[itemId].text)
-      })
-
-      console.log(formattedSelected.length ? formattedSelected.join(', ') : 'Nothing selected')
-    }
-
-    return (
-      <Router>
-        <div>
-          <p>See console for current selection</p>
-          <MenuMultiSelect bordered search onSelection={handleSelection}>
-            {items.map((item, i) => (
-              <MenuItem key={`item-${i}`} id={`${i}`} {...item} />
-            ))}
-          </MenuMultiSelect>
-        </div>
-      </Router>
-    )
-  }
 )
