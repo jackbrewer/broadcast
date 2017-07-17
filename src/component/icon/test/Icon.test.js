@@ -1,6 +1,6 @@
 import React from 'react'
 import assert from 'assert'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 
 import Icon from '../Icon'
 
@@ -23,6 +23,13 @@ describe('Component: Icon', function () {
     assert.equal(wrapper.prop('aria-hidden'), 'true')
     assert.equal(wrapper.find('span.is-vhidden').length, 0)
     assert.equal(wrapper.find('Svg').length, 1)
+  })
+
+  it('should render expected default dimensions no props passed', function () {
+    const wrapper = mount(<Icon {...defaultProps} />)
+    assert.equal(wrapper.getDOMNode().style.width, '88px')
+    assert.equal(wrapper.getDOMNode().style.height, '106px')
+    assert.equal(wrapper.getDOMNode().style.lineHeight, '106px')
   })
 
   it('should add accessibility text if `a11yText` prop set', () => {
@@ -48,19 +55,17 @@ describe('Component: Icon', function () {
   })
 
   it('should add a class and inline width if `width` prop set', () => {
-    const wrapper = shallow(<Icon {...defaultProps}
+    const wrapper = mount(<Icon {...defaultProps}
       width={30}
     />)
-    assert.equal(wrapper.hasClass('icon--custom-size'), true)
-    assert.equal(wrapper.prop('style').width, '30px')
+    assert.equal(wrapper.getDOMNode().style.width, '30px')
   })
 
   it('should add a class and inline height if `height` prop set', () => {
-    const wrapper = shallow(<Icon {...defaultProps}
+    const wrapper = mount(<Icon {...defaultProps}
       height={40}
     />)
-    assert.equal(wrapper.hasClass('icon--custom-size'), true)
-    assert.equal(wrapper.prop('style').height, '40px')
-    assert.equal(wrapper.prop('style').lineHeight, '40px')
+    assert.equal(wrapper.getDOMNode().style.height, '40px')
+    assert.equal(wrapper.getDOMNode().style.lineHeight, '40px')
   })
 })

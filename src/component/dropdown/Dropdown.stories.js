@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import Dropdown from './Dropdown'
-import MultiSelect from '../multi-select/MultiSelect'
 import Menu from '../menu/Menu'
 import MenuItem from '../menu/MenuItem'
 import MenuHeading from '../menu/MenuHeading'
@@ -18,7 +17,7 @@ stories.addWithInfo(
   'Default',
   () => (
     <Router>
-      <Dropdown maxHeight={200}>
+      <Dropdown>
         <Menu>
           <MenuItem text="One - Link" href="#one" />
           <MenuItem text="Two - Disabled Link" href="#two" disabled />
@@ -33,41 +32,55 @@ stories.addWithInfo(
 )
 
 stories.addWithInfo(
-  'Multi-select with search',
-  () => {
-    const items = [
-      { text: 'One Apple' },
-      { text: 'Two Apples' },
-      { text: 'Three Melons', subText: 'Appleton' },
-      { text: 'Four Oranges' },
-      { text: 'Five Strawberries', subText: 'Raspberries' },
-      { text: 'Six Pineapples' },
-      { text: 'Seven Grapes' }
-    ]
+  'Custom button text',
+  () => (
+    <Router>
+      <Dropdown buttonText="Hello">
+        <Menu>
+          <MenuItem text="One - Link" href="#one" />
+          <MenuItem text="Two - Disabled Link" href="#two" disabled />
+          <MenuItem text="Three - onClick" onClick={() => console.log('clicked')} />
+          <MenuDivider />
+          <MenuHeading text="Heading" />
+          <MenuItem text="Four" subText="Subtext here" />
+        </Menu>
+      </Dropdown>
+    </Router>
+  )
+)
 
-    function handleSelection (itemIds = []) {
-      const formattedSelected = []
-      itemIds.sort().map(itemId => {
-        formattedSelected.push(items[itemId].text)
-      })
+stories.addWithInfo(
+  'Custom icon',
+  () => (
+    <Router>
+      <Dropdown iconType="kebab">
+        <Menu>
+          <MenuItem text="One - Link" href="#one" />
+          <MenuItem text="Two - Disabled Link" href="#two" disabled />
+          <MenuItem text="Three - onClick" onClick={() => console.log('clicked')} />
+          <MenuDivider />
+          <MenuHeading text="Heading" />
+          <MenuItem text="Four" subText="Subtext here" />
+        </Menu>
+      </Dropdown>
+    </Router>
+  )
+)
 
-      console.log(formattedSelected.length ? formattedSelected.join(', ') : 'Nothing selected')
-    }
-
-    return (
-      <Router>
-        <div>
-          <p>Type 2+ characters to filter, click to select. See console for current selection.</p>
-          <br />
-          <Dropdown>
-            <MultiSelect search summary onSelection={handleSelection} maxHeight={225}>
-              {items.map((item, i) => (
-                <MenuItem key={`item-${i}`} id={`${i}`} {...item} />
-              ))}
-            </MultiSelect>
-          </Dropdown>
-        </div>
-      </Router>
-    )
-  }
+stories.addWithInfo(
+  'Max height',
+  () => (
+    <Router maxHeight={200}>
+      <Dropdown icon="kebab">
+        <Menu>
+          <MenuItem text="One - Link" href="#one" />
+          <MenuItem text="Two - Disabled Link" href="#two" disabled />
+          <MenuItem text="Three - onClick" onClick={() => console.log('clicked')} />
+          <MenuDivider />
+          <MenuHeading text="Heading" />
+          <MenuItem text="Four" subText="Subtext here" />
+        </Menu>
+      </Dropdown>
+    </Router>
+  )
 )

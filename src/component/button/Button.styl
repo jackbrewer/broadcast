@@ -27,6 +27,8 @@
   color $color--white
   background-color $color--primary
 
+  min-width 30px
+
   &:focus
   &:hover
     text-decoration none
@@ -37,6 +39,22 @@
   &:active
     background-color tint($color--primary, 20%)
 
+  .icon
+    vertical-align baseline
+
+    &:first-child
+      margin-right 10px
+
+    &:last-child
+      margin-left 10px
+
+    &:only-child
+      margin-left 0
+      margin-right 0
+
+    path
+    circle
+      fill $color--white
 
 //
 // BUTTON MODIFIERS

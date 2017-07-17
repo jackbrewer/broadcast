@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 // import classNames from 'classnames'
 import './Dropdown.styl'
 
+import Icon from '../icon/Icon'
+
 class Dropdown extends Component {
   constructor () {
     super()
@@ -37,7 +39,7 @@ class Dropdown extends Component {
   }
 
   render () {
-    const { children, maxHeight } = this.props
+    const { buttonText, children, iconType, maxHeight } = this.props
     return (
       <div className="dropdown">
         <button
@@ -45,7 +47,10 @@ class Dropdown extends Component {
           type="button"
           onClick={this.toggleDropdownList}
           >
-          Button
+          {buttonText &&
+            <span>{buttonText}</span>
+          }
+          <Icon type={iconType} />
         </button>
         <TransitionMotion
           styles={!this.state.isActive ? [] : [ {
@@ -87,8 +92,14 @@ class Dropdown extends Component {
   }
 }
 
+Dropdown.defaultProps = {
+  iconType: 'arrow-down'
+}
+
 Dropdown.propTypes = {
+  buttonText: PropTypes.string,
   children: PropTypes.node.isRequired,
+  iconType: PropTypes.string,
   maxHeight: PropTypes.number
 }
 
