@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import MultiSelect from './MultiSelect'
-import MultiSelectItem from '../multi-select/MultiSelectItem'
+import MultiSelectItem from './MultiSelectItem'
 import Dropdown from '../dropdown/Dropdown'
 
 const stories = storiesOf('MultiSelect', module)
