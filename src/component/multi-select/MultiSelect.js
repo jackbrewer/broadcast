@@ -33,7 +33,7 @@ class MultiSelect extends Component {
   }
 
   handleSelect (e) {
-    const id = e.currentTarget.id
+    const id = e.currentTarget.dataset.id
     const idIndex = this.state.selected.indexOf(id)
     let selected = []
 
@@ -49,7 +49,7 @@ class MultiSelect extends Component {
     }
 
     this.setState({ selected })
-    this.props.onSelection(selected)
+    this.props.onSelection(selected.map(id => this.props.children[id].props))
   }
 
   handleResetSelected () {
@@ -85,6 +85,7 @@ class MultiSelect extends Component {
 
     return (
       <Menu
+        className="multi-select"
         {...this.props}
         >
         {search &&
@@ -105,8 +106,9 @@ class MultiSelect extends Component {
 
             return React.cloneElement(child, {
               ...embellishedChildProps,
-              selected: this.state.selected.indexOf(child.props.id) > -1,
-              onClick: this.handleSelect
+              selected: this.state.selected.indexOf(`${i}`) > -1,
+              onClick: this.handleSelect,
+              'data-id': i
             })
           })}
         </MultiSelectList>

@@ -4,7 +4,8 @@ import { storiesOf } from '@storybook/react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import MultiSelect from './MultiSelect'
-import MenuItem from '../menu/MenuItem'
+import MultiSelectItem from '../multi-select/MultiSelectItem'
+import Dropdown from '../dropdown/Dropdown'
 
 const stories = storiesOf('MultiSelect', module)
 // stories.addDecorator(withKnobs)
@@ -249,12 +250,8 @@ const items = [
   { text: 'Zagreb', subText: 'Croatia' }
 ]
 
-function handleSelection (itemIds = []) {
-  const formattedSelected = []
-  itemIds.map(itemId => {
-    formattedSelected.push(items[itemId].text)
-  })
-  console.log(formattedSelected.length ? formattedSelected.join(', ') : 'Nothing selected')
+function handleSelection (items = []) {
+  console.log(items.map(item => item.text))
 }
 
 stories.addWithInfo(
@@ -266,7 +263,7 @@ stories.addWithInfo(
           <p>See console for current selection</p>
           <MultiSelect bordered onSelection={handleSelection}>
             {items.map((item, i) => (
-              <MenuItem key={`item-${i}`} id={`${i}`} {...item} />
+              <MultiSelectItem key={`item-${i}`} {...item} />
             ))}
           </MultiSelect>
         </div>
@@ -284,7 +281,7 @@ stories.addWithInfo(
           <p>See console for current selection</p>
           <MultiSelect bordered search onSelection={handleSelection}>
             {items.map((item, i) => (
-              <MenuItem key={`item-${i}`} id={`${i}`} {...item} />
+              <MultiSelectItem key={`item-${i}`} {...item} />
             ))}
           </MultiSelect>
         </div>
@@ -302,7 +299,7 @@ stories.addWithInfo(
           <p>See console for current selection</p>
           <MultiSelect bordered summary onSelection={handleSelection}>
             {items.map((item, i) => (
-              <MenuItem key={`item-${i}`} id={`${i}`} {...item} />
+              <MultiSelectItem key={`item-${i}`} {...item} />
             ))}
           </MultiSelect>
         </div>
@@ -320,7 +317,7 @@ stories.addWithInfo(
           <p>See console for current selection</p>
           <MultiSelect bordered maxHeight={400} onSelection={handleSelection}>
             {items.map((item, i) => (
-              <MenuItem key={`item-${i}`} id={`${i}`} {...item} />
+              <MultiSelectItem key={`item-${i}`} {...item} />
             ))}
           </MultiSelect>
         </div>
@@ -338,9 +335,30 @@ stories.addWithInfo(
           <p>See console for current selection</p>
           <MultiSelect bordered search summary maxHeight={400} onSelection={handleSelection}>
             {items.map((item, i) => (
-              <MenuItem key={`item-${i}`} id={`${i}`} {...item} />
+              <MultiSelectItem key={`item-${i}`} {...item} />
             ))}
           </MultiSelect>
+        </div>
+      </Router>
+    )
+  }
+)
+
+stories.addWithInfo(
+  'As Dropdown content',
+  () => {
+    return (
+      <Router>
+        <div>
+          <p>Type 2+ characters to filter, click to select. See console for current selection.</p>
+          <br />
+          <Dropdown buttonText="Choose cities">
+            <MultiSelect search summary onSelection={handleSelection} maxHeight={225}>
+              {items.map((item, i) => (
+                <MultiSelectItem key={`item-${i}`} {...item} />
+              ))}
+            </MultiSelect>
+          </Dropdown>
         </div>
       </Router>
     )
