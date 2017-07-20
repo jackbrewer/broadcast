@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { TransitionMotion, spring } from 'react-motion'
 import PropTypes from 'prop-types'
-// import classNames from 'classnames'
+import classNames from 'classnames'
 import './Dropdown.styl'
 
 import Icon from '../icon/Icon'
@@ -15,12 +15,17 @@ class Dropdown extends Component {
     }
 
     this.toggleDropdownList = this.toggleDropdownList.bind(this)
+    this.handleDone = this.handleDone.bind(this)
     this.willEnter = this.willEnter.bind(this)
     this.willLeave = this.willLeave.bind(this)
   }
 
   toggleDropdownList () {
     this.setState({ isActive: !this.state.isActive })
+  }
+
+  handleDone () {
+    this.setState({ isActive: false })
   }
 
   willEnter () {
@@ -30,6 +35,7 @@ class Dropdown extends Component {
       rotate: -5
     }
   }
+
   willLeave () {
     return {
       scale: spring(0, { stiffness: 300, damping: 26 }),
@@ -39,16 +45,21 @@ class Dropdown extends Component {
   }
 
   render () {
-    const { buttonText, children, iconType, maxHeight } = this.props
+    const { text, children, iconType, maxHeight, modifiers } = this.props
+    const dropdownTriggerClassNames = classNames(
+      'button',
+      'button--block',
+      modifiers && modifiers.map(modifierClass => `button--${modifierClass}`)
+    )
     return (
       <div className="dropdown">
         <button
-          className="dropdown__trigger button"
+          className={dropdownTriggerClassNames}
           type="button"
           onClick={this.toggleDropdownList}
           >
-          {buttonText &&
-            <span>{buttonText}</span>
+          {text &&
+            <span>{text}</span>
           }
           <Icon type={iconType} />
         </button>
@@ -79,7 +90,11 @@ class Dropdown extends Component {
                         maxHeight
                       }}
                       >
-                      {children}
+                      {React.Children.map(children, (child, i) => {
+                        return React.cloneElement(child, {
+                          onDone: this.handleDone
+                        })
+                      })}
                     </div>
                   )
                 })}
@@ -97,10 +112,11 @@ Dropdown.defaultProps = {
 }
 
 Dropdown.propTypes = {
-  buttonText: PropTypes.string,
+  text: PropTypes.string,
   children: PropTypes.node.isRequired,
   iconType: PropTypes.string,
-  maxHeight: PropTypes.number
+  maxHeight: PropTypes.number,
+  modifiers: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default Dropdown

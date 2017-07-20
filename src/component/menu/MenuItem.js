@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import './MenuItem.styl'
 
-const MenuItem = ({ children, disabled, href, id, onClick, selected, subText, text, ...other }) => {
+const MenuItem = ({ children, disabled, href, onClick, selected, subText, text, value, ...other }) => {
   const MenuItemEl = (href && !disabled) ? Link : 'button'
 
   return (
@@ -20,8 +20,8 @@ const MenuItem = ({ children, disabled, href, id, onClick, selected, subText, te
       {...disabled && { disabled }}
       {...href && { to: href }}
       {...onClick && { onClick }}
-      id={id}
       role="menuitem"
+      data-value={value}
       {...other}
       >
       {text}
@@ -37,7 +37,6 @@ MenuItem.propTypes = {
   children: PropTypes.node,
   disabled: PropTypes.bool,
   href: PropTypes.string,
-  id: PropTypes.string,
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   subText: PropTypes.oneOfType([
@@ -47,7 +46,8 @@ MenuItem.propTypes = {
   text: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node
-  ]).isRequired
+  ]).isRequired,
+  value: PropTypes.string
 }
 
 export default MenuItem

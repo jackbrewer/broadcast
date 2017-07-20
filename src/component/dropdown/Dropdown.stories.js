@@ -35,7 +35,7 @@ stories.addWithInfo(
   'Custom button text',
   () => (
     <Router>
-      <Dropdown buttonText="Hello">
+      <Dropdown text="Hello">
         <Menu>
           <MenuItem text="One - Link" href="#one" />
           <MenuItem text="Two - Disabled Link" href="#two" disabled />

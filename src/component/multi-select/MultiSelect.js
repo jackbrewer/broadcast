@@ -9,11 +9,11 @@ import MultiSelectSummary from './MultiSelectSummary'
 import Menu from '../menu/Menu'
 
 class MultiSelect extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     this.state = {
-      selected: [],
+      selected: props.selected || [],
       filter: ''
     }
 
@@ -25,7 +25,8 @@ class MultiSelect extends Component {
   }
 
   handleSearch (e) {
-    this.setState({ filter: e.target.value })
+    const filter = e.target.value.replace(/^ /, '').replace('  ', ' ')
+    this.setState({ filter })
   }
 
   handleClearSearch (e) {
@@ -33,23 +34,23 @@ class MultiSelect extends Component {
   }
 
   handleSelect (e) {
-    const id = e.currentTarget.dataset.id
-    const idIndex = this.state.selected.indexOf(id)
+    const value = e.currentTarget.dataset.value
+    const valueIndex = this.state.selected.indexOf(value)
     let selected = []
 
-    if (idIndex > -1) {
+    if (valueIndex > -1) {
       // Already selected - remove from selected array
       selected = [
-        ...this.state.selected.slice(0, idIndex),
-        ...this.state.selected.slice(idIndex + 1, this.state.selected.length)
+        ...this.state.selected.slice(0, valueIndex),
+        ...this.state.selected.slice(valueIndex + 1, this.state.selected.length)
       ]
     } else {
       // Add to selection
-      selected = [ ...this.state.selected, id ].sort((a, b) => parseInt(a, 10) < parseInt(b, 10) ? -1 : 1)
+      selected = [ ...this.state.selected, value ]
     }
 
     this.setState({ selected })
-    this.props.onSelection(selected.map(id => this.props.children[id].props))
+    this.props.onSelection(selected)
   }
 
   handleResetSelected () {
@@ -106,9 +107,8 @@ class MultiSelect extends Component {
 
             return React.cloneElement(child, {
               ...embellishedChildProps,
-              selected: this.state.selected.indexOf(`${i}`) > -1,
-              onClick: this.handleSelect,
-              'data-id': i
+              selected: this.state.selected.indexOf(child.props.value) > -1,
+              onClick: this.handleSelect
             })
           })}
         </MultiSelectList>
@@ -117,6 +117,7 @@ class MultiSelect extends Component {
           <MultiSelectSummary
             selected={this.state.selected}
             onResetSelection={this.handleResetSelected}
+            {...this.props}
           />
         }
       </Menu>
@@ -136,6 +137,7 @@ MultiSelect.propTypes = {
   onSelection: PropTypes.func.isRequired,
   search: PropTypes.bool,
   searchFields: PropTypes.arrayOf(PropTypes.string),
+  selected: PropTypes.arrayOf(PropTypes.string),
   summary: PropTypes.bool
 }
 
