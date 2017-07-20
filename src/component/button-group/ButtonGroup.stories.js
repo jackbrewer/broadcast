@@ -57,3 +57,21 @@ stories.addWithInfo(
     </ButtonGroup>
   )
 )
+
+stories.addWithInfo(
+  'Justified',
+  () => (
+    <ButtonGroup modifiers={[ 'justified' ]}>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+      <Dropdown text="Four">
+        <Menu>
+          <MenuItem text="One" />
+          <MenuItem text="Two" />
+          <MenuItem text="Three" />
+        </Menu>
+      </Dropdown>
+    </ButtonGroup>
+  )
+)

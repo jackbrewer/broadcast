@@ -3,12 +3,15 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import './ButtonGroup.styl'
 
-const ButtonGroup = ({ children }) => {
+const ButtonGroup = ({ children, className, modifiers }) => {
+  const ButtonGroupClassNames = classNames(
+    'button-group',
+    modifiers && modifiers.map(modifierClass => `button-group--${modifierClass}`),
+    className
+  )
   return (
     <div
-      className={classNames(
-        'button-group'
-      )}
+      className={ButtonGroupClassNames}
       >
       {children}
     </div>
@@ -16,7 +19,9 @@ const ButtonGroup = ({ children }) => {
 }
 
 ButtonGroup.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  modifiers: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default ButtonGroup

@@ -23,13 +23,13 @@ describe('Component: Button', function () {
     })
 
     it('should add a `disabled` prop if passed', function () {
-      const wrapper = mount(<Button disabled>Default Text</Button>)
+      const wrapper = shallow(<Button disabled>Default Text</Button>)
       assert.equal(wrapper.find('.button').prop('disabled'), true)
     })
 
     it('should add onClick function if passed', function () {
       const mockOnClick = spy()
-      const wrapper = mount(<Button onClick={mockOnClick}>Default Text</Button>)
+      const wrapper = shallow(<Button onClick={mockOnClick}>Default Text</Button>)
       wrapper.simulate('click')
       assert.equal(mockOnClick.calledOnce, true)
     })
