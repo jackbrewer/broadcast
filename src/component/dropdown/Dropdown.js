@@ -14,18 +14,53 @@ class Dropdown extends Component {
       isActive: false
     }
 
-    this.toggleDropdownList = this.toggleDropdownList.bind(this)
-    this.handleDone = this.handleDone.bind(this)
+    this.showDropdownList = this.showDropdownList.bind(this)
+    this.hideDropdownList = this.hideDropdownList.bind(this)
+    this.handleClickOutside = this.handleClickOutside.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
     this.willEnter = this.willEnter.bind(this)
     this.willLeave = this.willLeave.bind(this)
   }
 
-  toggleDropdownList () {
-    this.setState({ isActive: !this.state.isActive })
+  componentDidUpdate () {
+    if (this.state.isActive && this.props.clickOutsideToClose) {
+      document.addEventListener('click', this.handleClickOutside)
+      document.addEventListener('touchstart', this.handleClickOutside)
+    } else {
+      document.removeEventListener('click', this.handleClickOutside)
+      document.removeEventListener('touchstart', this.handleClickOutside)
+    }
+    if (this.state.isActive) {
+      document.addEventListener('keydown', this.handleKeyDown)
+    } else {
+      document.removeEventListener('keydown', this.handleKeyDown)
+    }
   }
 
-  handleDone () {
+  componentWillUnmount () {
+    document.removeEventListener('click', this.handleClickOutside)
+    document.removeEventListener('touchstart', this.handleClickOutside)
+    document.removeEventListener('keydown', this.handleKeyDown)
+  }
+
+  showDropdownList () {
+    this.setState({ isActive: true })
+  }
+
+  hideDropdownList () {
     this.setState({ isActive: false })
+  }
+
+  handleClickOutside (e) {
+    if (e.target.closest('.dropdown')) return
+    this.hideDropdownList()
+  }
+
+  handleKeyDown (e) {
+    const keys = {
+      27: this.hideDropdownList
+    }
+    return keys[e.keyCode] && keys[e.keyCode]()
   }
 
   willEnter () {
@@ -56,7 +91,7 @@ class Dropdown extends Component {
         <button
           className={dropdownTriggerClassNames}
           type="button"
-          onClick={this.toggleDropdownList}
+          onClick={this.state.isActive ? this.hideDropdownList : this.showDropdownList}
           >
           {text &&
             <span>{text}</span>
@@ -92,7 +127,7 @@ class Dropdown extends Component {
                       >
                       {React.Children.map(children, (child, i) => {
                         return React.cloneElement(child, {
-                          onDone: this.handleDone
+                          onDone: this.hideDropdownList
                         })
                       })}
                     </div>
@@ -108,12 +143,14 @@ class Dropdown extends Component {
 }
 
 Dropdown.defaultProps = {
-  iconType: 'arrow-down'
+  iconType: 'arrow-down',
+  clickOutsideToClose: true
 }
 
 Dropdown.propTypes = {
   text: PropTypes.string,
   children: PropTypes.node.isRequired,
+  clickOutsideToClose: PropTypes.bool,
   iconType: PropTypes.string,
   maxHeight: PropTypes.number,
   modifiers: PropTypes.arrayOf(PropTypes.string)
