@@ -1,21 +1,18 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import '../../asset/stylus/index.styl'
 
-import Layout from '../layout/Layout'
-import Public from '../public/Public'
+import ScrollToTop from '../scroll-to-top/ScrollToTop'
+
+import Routes from '../../Routes.js'
 
 class App extends Component {
   render () {
     return (
       <Router>
-
-        <Switch>
-          <Route exact path="/login" component={Public} />
-
-          <Route component={Layout} />
-        </Switch>
-
+        <ScrollToTop>
+          <Routes />
+        </ScrollToTop>
       </Router>
     )
   }

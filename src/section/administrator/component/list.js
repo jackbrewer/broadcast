@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import Page from '../../structure/page/Page'
+import Default from '../../../layout/default/Default'
 
-import List from '../../component/list/List'
-import ListHeader from '../../component/list/ListHeader'
-import ListHeading from '../../component/list/ListHeading'
-import ListBody from '../../component/list/ListBody'
-import ListRow from '../../component/list/ListRow'
-import ListCell from '../../component/list/ListCell'
+import List from '../../../component/list/List'
+import ListHeader from '../../../component/list/ListHeader'
+import ListHeading from '../../../component/list/ListHeading'
+import ListBody from '../../../component/list/ListBody'
+import ListRow from '../../../component/list/ListRow'
+import ListCell from '../../../component/list/ListCell'
 
-import ButtonGroup from '../../component/button-group/ButtonGroup'
-import Button from '../../component/button/Button'
-import Dropdown from '../../component/dropdown/Dropdown'
-import Menu from '../../component/menu/Menu'
-import MenuItem from '../../component/menu/MenuItem'
+import ButtonGroup from '../../../component/button-group/ButtonGroup'
+import Button from '../../../component/button/Button'
+import Dropdown from '../../../component/dropdown/Dropdown'
+import Menu from '../../../component/menu/Menu'
+import MenuItem from '../../../component/menu/MenuItem'
 
 const mockItems = [
   {
@@ -69,7 +69,9 @@ class ListPage extends Component {
 
   render () {
     return (
-      <Page heading="List page">
+      <Default>
+        <h1 className="heading">Administrators</h1>
+
         <List>
 
           <ListHeader>
@@ -119,7 +121,7 @@ class ListPage extends Component {
           </ListBody>
 
         </List>
-      </Page>
+      </Default>
     )
   }
 }

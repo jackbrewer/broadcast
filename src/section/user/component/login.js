@@ -1,13 +1,12 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 
-import Button from '../../component/button/Button'
-import Field from '../../component/field/Field'
+import Minimal from '../../../layout/minimal/Minimal'
+import Button from '../../../component/button/Button'
+import Field from '../../../component/field/Field'
 
 const LoginPage = () => {
   return (
-    <div className="prose">
-      <Helmet title="Article Form" />
+    <Minimal>
       <h1>Login</h1>
 
       <form
@@ -31,7 +30,7 @@ const LoginPage = () => {
 
         <Button type="submit">Submit</Button>
       </form>
-    </div>
+    </Minimal>
   )
 }
 

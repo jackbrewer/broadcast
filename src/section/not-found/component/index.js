@@ -1,11 +1,10 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import Default from '../../../layout/default/Default'
 
 const NotFoundPage = () => (
-  <div className="prose">
-    <Helmet title="Not Found" />
+  <Default>
     <h1>Not Found</h1>
-  </div>
+  </Default>
 )
 
 export default NotFoundPage

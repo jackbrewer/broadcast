@@ -1,9 +1,10 @@
 import React from 'react'
+import Default from '../../../layout/default/Default'
 
 const IndexPage = () => (
-  <div className="prose">
+  <Default>
     <h1>Backline</h1>
-  </div>
+  </Default>
 )
 
 export default IndexPage

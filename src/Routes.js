@@ -1,29 +1,28 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import ScrollToTop from './structure/scroll-to-top/ScrollToTop'
-
 // Site Pages
-import IndexPage from './page/IndexPage'
-import NotFoundPage from './page/NotFoundPage'
+import Dashboard from './section/dashboard/component/index'
+import NotFound from './section/not-found/component/index'
+
+import Login from './section/user/component/login'
 
 // Component Pages
-import ArticleForm from './page/page/ArticleForm'
-import ListPage from './page/page/ListPage'
+import ArticleForm from './section/article/component/form'
+import AdministratorList from './section/administrator/component/list'
 
 class Routes extends Component {
   render () {
     return (
-      <ScrollToTop>
-        <Switch>
-          <Route exact path="/" component={IndexPage} />
+      <Switch>
+        <Route exact path="/login" component={Login} />
 
-          <Route exact path="/page/article-form" component={ArticleForm} />
-          <Route exact path="/page/list-page" component={ListPage} />
+        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/article/form" component={ArticleForm} />
+        <Route exact path="/administrator" component={AdministratorList} />
 
-          <Route component={NotFoundPage} />
-        </Switch>
-      </ScrollToTop>
+        <Route component={NotFound} />
+      </Switch>
     )
   }
 }

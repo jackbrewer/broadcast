@@ -15,15 +15,16 @@ const Navigation = () => (
 
       <h3>Test Pages</h3>
       <ul className="list--unstyled">
-        <NavigationItem to="/page/article-form" text="Article Form" />
-        <NavigationItem to="/page/list-page" text="List Page" />
+        <NavigationItem to="/" exact text="Dashboard (Home)" />
+        <NavigationItem to="/administrator" text="Administrators" />
         <NavigationItem to="/login" text="Login" />
+        <NavigationItem to="/article/form" text="Articles" />
       </ul>
 
       <h3>Content</h3>
       <ul className="list--unstyled">
         <NavigationItem to="/section" text="Sections" />
-        <NavigationItem to="/article" text="Articles" />
+        <NavigationItem to="/article/form" text="Articles" />
         <NavigationItem to="/list" text="Lists" />
         <NavigationItem to="/asset" text="Assets" />
         <NavigationItem to="/author" text="Authors" />
