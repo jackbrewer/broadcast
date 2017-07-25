@@ -5,7 +5,7 @@ import './Page.styl'
 
 const Page = ({ children, heading, slug }) => (
   <div className="page">
-    <div className="content-gutter content-center">
+    <div className="content-gutter">
 
       <Helmet title={heading} />
 

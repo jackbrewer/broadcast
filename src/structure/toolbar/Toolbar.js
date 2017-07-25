@@ -1,10 +1,17 @@
 import React from 'react'
 import './Toolbar.styl'
 
+import ButtonGroup from '../../component/button-group/ButtonGroup'
+import Button from '../../component/button/Button'
+
 const Toolbar = () => (
   <div className="toolbar">
     <div className="toolbar__inner">
-      This project is still in its early stages. More refined components, docs and examples coming&nbsp;soon.
+      <ButtonGroup>
+        <Button modifiers={[ 'inverse' ]}>
+          Example
+        </Button>
+      </ButtonGroup>
     </div>
   </div>
 )

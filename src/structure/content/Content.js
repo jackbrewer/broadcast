@@ -5,7 +5,9 @@ import Routes from '../../Routes'
 
 const Content = () => (
   <main className="content" id="content" role="main">
-    <Routes />
+    <div className="content__inner">
+      <Routes />
+    </div>
   </main>
 )
 
