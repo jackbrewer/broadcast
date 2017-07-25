@@ -56,16 +56,33 @@ const mockItems = [
   }
 ]
 
-mockItems.push(...mockItems)
-
 class ListPage extends Component {
   constructor () {
     super()
 
     this.state = {
-      sortField: '',
+      sortField: 'name',
       sortDirection: 'asc'
     }
+
+    this.isSorted = this.isSorted.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  isSorted (field) {
+    if (field !== this.state.sortField) return
+    return this.state.sortDirection
+  }
+
+  handleClick (field) {
+    let direction = 'asc'
+    if (this.state.sortField === field && this.state.sortDirection !== 'desc') {
+      direction = 'desc'
+    }
+    this.setState({
+      sortField: field,
+      sortDirection: direction
+    })
   }
 
   render () {
@@ -76,10 +93,31 @@ class ListPage extends Component {
         <List>
 
           <ListHeader>
-            <ListHeading sortable>Name</ListHeading>
-            <ListHeading>Email Address</ListHeading>
-            <ListHeading align="right">Published</ListHeading>
-            <ListHeading>Last Login</ListHeading>
+            <ListHeading
+              handleClick={() => this.handleClick('name')}
+              sortDirection={this.isSorted('name')}
+              >
+              Name
+            </ListHeading>
+            <ListHeading
+              handleClick={() => this.handleClick('emailAddress')}
+              sortDirection={this.isSorted('emailAddress')}
+              >
+              Email Address
+            </ListHeading>
+            <ListHeading
+              handleClick={() => this.handleClick('publishedArticles')}
+              sortDirection={this.isSorted('publishedArticles')}
+              align="right"
+              >
+              Published
+            </ListHeading>
+            <ListHeading
+              handleClick={() => this.handleClick('lastLogin')}
+              sortDirection={this.isSorted('lastLogin')}
+              >
+              Last Login
+            </ListHeading>
             <ListHeading>Actions</ListHeading>
           </ListHeader>
 
