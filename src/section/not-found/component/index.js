@@ -1,9 +1,11 @@
 import React from 'react'
 import Default from '../../../layout/default/Default'
 
+import Heading from '../../../component/heading/Heading'
+
 const NotFoundPage = () => (
   <Default>
-    <h1>Not Found</h1>
+    <Heading size="huge">Not Found</Heading>
   </Default>
 )
 

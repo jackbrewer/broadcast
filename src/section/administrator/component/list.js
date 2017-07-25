@@ -10,6 +10,7 @@ import ListBody from '../../../component/list/ListBody'
 import ListRow from '../../../component/list/ListRow'
 import ListCell from '../../../component/list/ListCell'
 
+import Heading from '../../../component/heading/Heading'
 import ButtonGroup from '../../../component/button-group/ButtonGroup'
 import Button from '../../../component/button/Button'
 import Dropdown from '../../../component/dropdown/Dropdown'
@@ -70,7 +71,7 @@ class ListPage extends Component {
   render () {
     return (
       <Default>
-        <h1 className="heading">Administrators</h1>
+        <Heading size="huge">Administrators</Heading>
 
         <List>
 

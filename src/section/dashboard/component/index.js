@@ -1,9 +1,11 @@
 import React from 'react'
 import Default from '../../../layout/default/Default'
 
+import Heading from '../../../component/heading/Heading'
+
 const IndexPage = () => (
   <Default>
-    <h1>Backline</h1>
+    <Heading size="huge">Backline</Heading>
   </Default>
 )
 

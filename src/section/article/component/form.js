@@ -6,6 +6,7 @@ import { CSSTransitionGroup } from 'react-transition-group'
 
 import Default from '../../../layout/default/Default'
 
+import Heading from '../../../component/heading/Heading'
 import Button from '../../../component/button/Button'
 import Field from '../../../component/field/Field'
 
@@ -62,7 +63,7 @@ class ArticleForm extends React.Component {
 
     return (
       <Default>
-        <h1 className="heading">Article Form</h1>
+        <Heading size="huge">Article Form</Heading>
 
         <form
           action=""

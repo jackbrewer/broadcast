@@ -1,13 +1,14 @@
 import React from 'react'
 
 import Minimal from '../../../layout/minimal/Minimal'
+import Heading from '../../../component/heading/Heading'
 import Button from '../../../component/button/Button'
 import Field from '../../../component/field/Field'
 
 const LoginPage = () => {
   return (
     <Minimal>
-      <h1>Login</h1>
+      <Heading size="huge">Login</Heading>
 
       <form
         action=""
