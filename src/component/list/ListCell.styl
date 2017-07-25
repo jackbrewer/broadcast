@@ -1,0 +1,34 @@
+//
+// LIST CELL
+// =========
+//
+
+.list-cell
+  display table-cell
+  border-color $color--grey-90
+  border-style solid
+  border-width 1px 0
+  padding 10px
+
+  &:first-child
+    border-left-width 1px
+
+  &:last-child
+    border-right-width 1px
+
+  .list__head &
+    border 0
+
+
+.list-cell--right
+  text-align right
+
+.list-cell--shrink
+  width 1px
+
+.list-cell--nowrap
+  white-space nowrap
+
+.list-cell--muted
+  font-size 0.9em
+  color $color--grey-50

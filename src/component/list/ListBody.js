@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './List.styl'
+import './ListBody.styl'
 
-const List = ({ children, headings }) => (
-  <div className="list">
+const ListBody = ({ children, headings }) => (
+  <div className="list-body">
     {children}
   </div>
 )
 
-List.propTypes = {
+ListBody.propTypes = {
   children: PropTypes.node,
   headings: PropTypes.arrayOf(PropTypes.string)
 }
 
-export default List
+export default ListBody
