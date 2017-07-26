@@ -13,14 +13,6 @@ const Navigation = () => (
 
     <div className="navigation__inner">
 
-      <h3>Test Pages</h3>
-      <ul className="list--unstyled">
-        <NavigationItem to="/" exact text="Dashboard (Home)" />
-        <NavigationItem to="/administrator" text="Administrators" />
-        <NavigationItem to="/login" text="Login" />
-        <NavigationItem to="/article/form" text="Articles" />
-      </ul>
-
       <h3>Content</h3>
       <ul className="list--unstyled">
         <NavigationItem to="/section" text="Sections" />

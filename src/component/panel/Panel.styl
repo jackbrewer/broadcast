@@ -1,0 +1,11 @@
+.panel
+  padding $spacing--default
+  background-color $color--white
+  border-radius $base--border-radius
+  box-shadow 0 2px 2px rgba($color--black, 0.05)
+
+  & + &
+    margin-top $spacing--default
+
+    +width-min($mq--tablet)
+      margin-top $spacing--default * 2

@@ -9,5 +9,14 @@
     display flex
     flex-direction column
 
+  .default__item--sidebar
+    flex 0 0 auto
+    flex-basis 200px
+
   .default__item--grow
     flex 1 1 auto
+    overflow hidden // Stops wide tables breaking page layout
+
++width-min($mq--tablet--landscape)
+  .default__item--sidebar
+    flex-basis 280px

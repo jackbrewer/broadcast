@@ -7,8 +7,9 @@
   display table-cell
   border-color $color--grey-90
   border-style solid
-  border-width 1px 0
+  border-width 1px 0 0
   padding 10px
+  border-collapse collapse
 
   &:first-child
     border-left-width 1px
@@ -16,12 +17,18 @@
   &:last-child
     border-right-width 1px
 
-  .list__head &
-    border 0
+  .list-row:last-child &
+    border-bottom-width 1px
 
+.list-cell--left
+  text-align left
 
 .list-cell--right
   text-align right
+
+.list-cell--center
+  text-align center
+
 
 .list-cell--shrink
   width 1px

@@ -16,6 +16,8 @@ import Button from '../../../component/button/Button'
 import Dropdown from '../../../component/dropdown/Dropdown'
 import Menu from '../../../component/menu/Menu'
 import MenuItem from '../../../component/menu/MenuItem'
+import OverflowWrapper from '../../../component/overflow-wrapper/OverflowWrapper'
+import Toolbar from '../../../component/toolbar/Toolbar'
 
 const mockItems = [
   {
@@ -56,7 +58,7 @@ const mockItems = [
   }
 ]
 
-class ListPage extends Component {
+class AdministratorList extends Component {
   constructor () {
     super()
 
@@ -86,83 +88,98 @@ class ListPage extends Component {
   }
 
   render () {
+    const toolbar = (
+      <Toolbar>
+        <ButtonGroup>
+          <Button href="/administrator/form" modifiers={[ 'inverse' ]}>
+            New Administrator
+          </Button>
+        </ButtonGroup>
+      </Toolbar>
+    )
+
     return (
-      <Default>
+      <Default toolbar={toolbar}>
         <Heading size="huge">Administrators</Heading>
 
-        <List>
+        <OverflowWrapper>
+          <List>
+            <ListHeader>
+              <ListHeading
+                handleClick={() => this.handleClick('name')}
+                sortable
+                sortDirection={this.isSorted('name')}
+                >
+                Name
+              </ListHeading>
+              <ListHeading
+                handleClick={() => this.handleClick('emailAddress')}
+                sortable
+                sortDirection={this.isSorted('emailAddress')}
+                >
+                Email Address
+              </ListHeading>
+              <ListHeading
+                handleClick={() => this.handleClick('publishedArticles')}
+                sortable
+                sortDirection={this.isSorted('publishedArticles')}
+                align="right"
+                >
+                Published
+              </ListHeading>
+              <ListHeading
+                handleClick={() => this.handleClick('lastLogin')}
+                sortable
+                sortDirection={this.isSorted('lastLogin')}
+                >
+                Last Login
+              </ListHeading>
+              <ListHeading>Actions</ListHeading>
+            </ListHeader>
 
-          <ListHeader>
-            <ListHeading
-              handleClick={() => this.handleClick('name')}
-              sortDirection={this.isSorted('name')}
-              >
-              Name
-            </ListHeading>
-            <ListHeading
-              handleClick={() => this.handleClick('emailAddress')}
-              sortDirection={this.isSorted('emailAddress')}
-              >
-              Email Address
-            </ListHeading>
-            <ListHeading
-              handleClick={() => this.handleClick('publishedArticles')}
-              sortDirection={this.isSorted('publishedArticles')}
-              align="right"
-              >
-              Published
-            </ListHeading>
-            <ListHeading
-              handleClick={() => this.handleClick('lastLogin')}
-              sortDirection={this.isSorted('lastLogin')}
-              >
-              Last Login
-            </ListHeading>
-            <ListHeading>Actions</ListHeading>
-          </ListHeader>
+            <ListBody>
+              {mockItems
+                .sort((a, b) => {
+                  if (!this.state.sortField) return
+                  return a[this.state.sortField] > b[this.state.sortField]
+                    ? this.state.sortDirection === 'asc' ? 1 : -1
+                    : this.state.sortDirection === 'asc' ? -1 : 1
+                })
+                .map((row, i) => {
+                  return (
+                    <ListRow key={`row-${i}`}>
+                      <ListCell>
+                        <Link to="#">{row.name}</Link>
+                      </ListCell>
+                      <ListCell>{row.emailAddress}</ListCell>
+                      <ListCell align="right">{row.publishedArticles}</ListCell>
+                      <ListCell modifiers={[ 'muted' ]}>{row.lastLogin}</ListCell>
+                      <ListCell
+                        align="right"
+                        modifiers={[ 'shrink', 'nowrap' ]}
+                        >
 
-          <ListBody>
-            {mockItems
-              .sort((a, b) => {
-                if (!this.state.sortField) return
-                return a[this.state.sortField] > b[this.state.sortField]
-                  ? this.state.sortDirection === 'asc' ? 1 : -1
-                  : this.state.sortDirection === 'asc' ? -1 : 1
-              })
-              .map((row, i) => {
-                return (
-                  <ListRow key={`row-${i}`}>
-                    <ListCell>
-                      <Link to="#">{row.name}</Link>
-                    </ListCell>
-                    <ListCell>{row.emailAddress}</ListCell>
-                    <ListCell align="right">{row.publishedArticles}</ListCell>
-                    <ListCell modifiers={[ 'muted' ]}>{row.lastLogin}</ListCell>
-                    <ListCell
-                      align="right"
-                      modifiers={[ 'shrink', 'nowrap' ]}
-                      >
+                        <ButtonGroup>
+                          <Button>Reset Password</Button>
+                          <Dropdown>
+                            <Menu>
+                              <MenuItem text="Revisions" />
+                              <MenuItem text="Delete" />
+                            </Menu>
+                          </Dropdown>
+                        </ButtonGroup>
+                      </ListCell>
+                    </ListRow>
+                  )
+                })
+              }
+            </ListBody>
 
-                      <ButtonGroup>
-                        <Button>Reset Password</Button>
-                        <Dropdown>
-                          <Menu>
-                            <MenuItem text="Revisions" />
-                            <MenuItem text="Delete" />
-                          </Menu>
-                        </Dropdown>
-                      </ButtonGroup>
-                    </ListCell>
-                  </ListRow>
-                )
-              })
-            }
-          </ListBody>
-
-        </List>
+          </List>
+        </OverflowWrapper>
       </Default>
     )
   }
 }
 
-export default ListPage
+export default AdministratorList

@@ -7,3 +7,27 @@
   display table-cell
   padding 10px
   font-weight bold
+  user-select none
+
+.list-heading--sortable
+  cursor pointer
+  position relative
+  text-decoration underline
+
+  &:hover
+  &:focus
+    color $color--primary
+
+  .icon
+    position absolute
+    margin-left 3px
+    top 18px
+
+.list-heading--left
+  text-align left
+
+.list-heading--right
+  text-align right
+
+.list-heading--center
+  text-align center

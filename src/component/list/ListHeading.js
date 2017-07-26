@@ -8,11 +8,12 @@ import Icon from '../icon/Icon'
 // TODO: This component is very similar to ListCell. Once all feature are added
 // (sprting etc), see if this can still extend ListCell to reduce duplication
 
-const ListHeading = ({ align, children, handleClick, sortDirection, modifiers }) => {
+const ListHeading = ({ align, children, handleClick, sortable, sortDirection, modifiers }) => {
   const listHeadingClassNames = classNames(
     'list-heading',
     {
-      [`list-heading--${align}`]: align
+      [`list-heading--${align}`]: align,
+      'list-heading--sortable': sortable
     },
     modifiers && modifiers.map(modifierClass => `list-heading--${modifierClass}`)
   )
@@ -31,6 +32,7 @@ ListHeading.propTypes = {
   children: PropTypes.node,
   handleClick: PropTypes.func,
   modifiers: PropTypes.arrayOf(PropTypes.string),
+  sortable: PropTypes.bool,
   sortDirection: PropTypes.oneOf([ 'asc', 'desc' ])
 }
 
