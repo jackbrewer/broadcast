@@ -9,8 +9,7 @@ import Login from './section/user/component/login'
 
 // Component Pages
 import ArticleForm from './section/article/component/form'
-import AdministratorList from './section/administrator/component/list'
-import AdministratorForm from './section/administrator/component/form'
+import AdministratorIndex from './section/administrator/component/index'
 
 class Routes extends Component {
   render () {
@@ -20,8 +19,7 @@ class Routes extends Component {
 
         <Route exact path="/" component={Dashboard} />
         <Route exact path="/article/form" component={ArticleForm} />
-        <Route exact path="/administrator" component={AdministratorList} />
-        <Route exact path="/administrator/form" component={AdministratorForm} />
+        <Route exact path="/administrator" component={AdministratorIndex} />
 
         <Route component={NotFound} />
       </Switch>

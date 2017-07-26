@@ -10,7 +10,7 @@ import Navigation from '../../structure/navigation/Navigation'
 import UserNavigation from '../../structure/user-navigation/UserNavigation'
 import Content from '../../structure/content/Content'
 
-const Default = ({ children, toolbar }) => {
+const Default = ({ children, overlay, toolbar }) => {
   return (
     <div className="default">
 
@@ -24,10 +24,14 @@ const Default = ({ children, toolbar }) => {
       </div>
 
       <div className="default__item default__item--grow">
-        {toolbar}
-        <Content>
-          {children}
-        </Content>
+
+        <div className="default__content-wrapper">
+          {toolbar}
+          <Content>
+            {children}
+          </Content>
+          {overlay}
+        </div>
       </div>
 
     </div>
@@ -36,6 +40,7 @@ const Default = ({ children, toolbar }) => {
 
 Default.propTypes = {
   children: PropTypes.node,
+  overlay: PropTypes.node,
   toolbar: PropTypes.node
 }
 

@@ -1,0 +1,86 @@
+//
+// TOOLBAR
+// =======
+//
+
+$overlay--reveal-speed-in ?= 300ms
+$overlay--reveal-speed-out ?= 300ms
+$overlay--background-color ?= $color--white
+
+.overlay
+  position absolute
+  top 0
+  right 0
+  width 100%
+  height 100%
+  overflow hidden
+
+.overlay__backdrop
+  position absolute
+  top 0
+  right 0
+  width 100%
+  height 100%
+  background-color rgba($color--black, 0.4)
+
+.overlay__inner
+  display flex
+  flex-direction column
+  position relative
+  height 100%
+  background-color $overlay--background-color
+  box-shadow 0 2px 2px rgba($color--black, 0.05)
+  margin-left auto
+  width 95%
+
+  +width-min($mq--tablet)
+    width 75%
+
+  &:after
+    content ''
+    position absolute
+    top 0
+    left 100%
+    width 25%
+    height 100%
+    background-color $overlay--background-color
+
+.overlay__toolbar
+  //
+
+.overlay__content
+  overflow hidden
+
+.overlay__content-inner
+  overflow-y auto
+  padding $spacing--default
+  -webkit-overflow-scrolling touch
+
+
+.overlay-reveal-enter
+  .overlay__backdrop
+    opacity 0.01
+  .overlay__inner
+    transform translateX(100%)
+
+.overlay-reveal-enter.overlay-reveal-enter-active
+  .overlay__backdrop
+    opacity 1
+    transition opacity $overlay--reveal-speed-in ease-out
+  .overlay__inner
+    transform translateX(0%)
+    transition transform $overlay--reveal-speed-in $ease-out-expo
+
+.overlay-reveal-leave
+  .overlay__backdrop
+    opacity 1
+  .overlay__inner
+    transform translateX(0%)
+
+.overlay-reveal-leave.overlay-reveal-leave-active
+  .overlay__backdrop
+    opacity 0.01
+    transition opacity $overlay--reveal-speed-out ease-out
+  .overlay__inner
+    transform translateX(100%)
+    transition transform $overlay--reveal-speed-out ease-out

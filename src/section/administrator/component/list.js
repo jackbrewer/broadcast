@@ -1,72 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Default from '../../../layout/default/Default'
-
 import SortableList from '../../../component/sortable-list/SortableList'
 import ListHeading from '../../../component/list/ListHeading'
 import ListRow from '../../../component/list/ListRow'
 import ListCell from '../../../component/list/ListCell'
 
-import Heading from '../../../component/heading/Heading'
 import ButtonGroup from '../../../component/button-group/ButtonGroup'
 import Button from '../../../component/button/Button'
 import Dropdown from '../../../component/dropdown/Dropdown'
 import Menu from '../../../component/menu/Menu'
 import MenuItem from '../../../component/menu/MenuItem'
 import OverflowWrapper from '../../../component/overflow-wrapper/OverflowWrapper'
-import Toolbar from '../../../component/toolbar/Toolbar'
 
-const mockItems = [
-  {
-    name: 'Michael Turner',
-    emailAddress: 'michael.turner63@example.com',
-    lastLogin: '2 days ago',
-    publishedArticles: 1
-  },
-  {
-    name: 'Evan Spencer',
-    emailAddress: 'evan.spencer93@example.com',
-    lastLogin: '1 day ago',
-    publishedArticles: 2
-  },
-  {
-    name: 'Rose Bennett',
-    emailAddress: 'rose.bennett64@example.com',
-    lastLogin: '5 minutes ago',
-    publishedArticles: 10
-  },
-  {
-    name: 'Sue Butler',
-    emailAddress: 'sue.butler27@example.com',
-    lastLogin: '4 June 2017',
-    publishedArticles: 3
-  },
-  {
-    name: 'Marie Stephens',
-    emailAddress: 'marie.stephens96@example.com',
-    lastLogin: 'Never',
-    publishedArticles: 20
-  },
-  {
-    name: 'Jordan Robertson',
-    emailAddress: 'jordan.robertson73@example.com',
-    lastLogin: '2 days ago',
-    publishedArticles: 0
-  }
-]
+import mockData from '../fixture/administrator'
 
-const AdministratorList = () => {
-  const toolbar = (
-    <Toolbar>
-      <ButtonGroup>
-        <Button href="/administrator/form" modifiers={[ 'inverse' ]}>
-          New Administrator
-        </Button>
-      </ButtonGroup>
-    </Toolbar>
-  )
-
+const ListView = () => {
   const headings = [
     <ListHeading sortable key="name">Name</ListHeading>,
     <ListHeading sortable key="emailAddress">emailAddress</ListHeading>,
@@ -75,7 +24,7 @@ const AdministratorList = () => {
     <ListHeading key="actions">Actions</ListHeading>
   ]
 
-  const data = mockItems
+  const data = mockData
     .map((row, i) => (
       <ListRow key={`row-${i}`} {...row}>
         <ListCell>
@@ -102,13 +51,10 @@ const AdministratorList = () => {
     ))
 
   return (
-    <Default toolbar={toolbar}>
-      <Heading size="huge">Administrators</Heading>
-      <OverflowWrapper>
-        <SortableList headings={headings} data={data} />
-      </OverflowWrapper>
-    </Default>
+    <OverflowWrapper>
+      <SortableList headings={headings} data={data} />
+    </OverflowWrapper>
   )
 }
 
-export default AdministratorList
+export default ListView

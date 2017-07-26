@@ -7,7 +7,6 @@
 .toolbar
   background-color $color--primary
   color $color--white
-  padding ($spacing--default * 0.5) $spacing--default
 
   flex 0 0 auto
 
@@ -16,3 +15,13 @@
 
 .toolbar__inner
   max-width 100%
+  flex 1 1 auto
+  display flex
+  justify-content space-between
+  padding ($spacing--default * 0.5) $spacing--default
+
+
+.toolbar--light
+  background-color $color--white
+  color inherit
+  border-bottom 1px solid $color--grey-75
