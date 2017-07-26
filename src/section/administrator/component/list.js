@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 import Default from '../../../layout/default/Default'
 
-import List from '../../../component/list/List'
-import ListHeader from '../../../component/list/ListHeader'
+import SortableList from '../../../component/sortable-list/SortableList'
 import ListHeading from '../../../component/list/ListHeading'
-import ListBody from '../../../component/list/ListBody'
 import ListRow from '../../../component/list/ListRow'
 import ListCell from '../../../component/list/ListCell'
 
@@ -58,128 +56,59 @@ const mockItems = [
   }
 ]
 
-class AdministratorList extends Component {
-  constructor () {
-    super()
+const AdministratorList = () => {
+  const toolbar = (
+    <Toolbar>
+      <ButtonGroup>
+        <Button href="/administrator/form" modifiers={[ 'inverse' ]}>
+          New Administrator
+        </Button>
+      </ButtonGroup>
+    </Toolbar>
+  )
 
-    this.state = {
-      sortField: 'name',
-      sortDirection: 'asc'
-    }
+  const headings = [
+    <ListHeading sortable key="name">Name</ListHeading>,
+    <ListHeading sortable key="emailAddress">emailAddress</ListHeading>,
+    <ListHeading sortable key="publishedArticles" align="right">publishedArticles</ListHeading>,
+    <ListHeading sortable key="lastLogin">lastLogin</ListHeading>,
+    <ListHeading key="actions">Actions</ListHeading>
+  ]
 
-    this.isSorted = this.isSorted.bind(this)
-    this.handleClick = this.handleClick.bind(this)
-  }
+  const data = mockItems
+    .map((row, i) => (
+      <ListRow key={`row-${i}`} {...row}>
+        <ListCell>
+          <Link to="#">{row.name}</Link>
+        </ListCell>
+        <ListCell>{row.emailAddress}</ListCell>
+        <ListCell align="right">{row.publishedArticles}</ListCell>
+        <ListCell modifiers={[ 'muted' ]}>{row.lastLogin}</ListCell>
+        <ListCell
+          align="right"
+          modifiers={[ 'shrink', 'nowrap' ]}
+          >
+          <ButtonGroup>
+            <Button>Reset Password</Button>
+            <Dropdown>
+              <Menu>
+                <MenuItem text="Revisions" />
+                <MenuItem text="Delete" />
+              </Menu>
+            </Dropdown>
+          </ButtonGroup>
+        </ListCell>
+      </ListRow>
+    ))
 
-  isSorted (field) {
-    if (field !== this.state.sortField) return
-    return this.state.sortDirection
-  }
-
-  handleClick (field) {
-    let direction = 'asc'
-    if (this.state.sortField === field && this.state.sortDirection !== 'desc') {
-      direction = 'desc'
-    }
-    this.setState({
-      sortField: field,
-      sortDirection: direction
-    })
-  }
-
-  render () {
-    const toolbar = (
-      <Toolbar>
-        <ButtonGroup>
-          <Button href="/administrator/form" modifiers={[ 'inverse' ]}>
-            New Administrator
-          </Button>
-        </ButtonGroup>
-      </Toolbar>
-    )
-
-    return (
-      <Default toolbar={toolbar}>
-        <Heading size="huge">Administrators</Heading>
-
-        <OverflowWrapper>
-          <List>
-            <ListHeader>
-              <ListHeading
-                handleClick={() => this.handleClick('name')}
-                sortable
-                sortDirection={this.isSorted('name')}
-                >
-                Name
-              </ListHeading>
-              <ListHeading
-                handleClick={() => this.handleClick('emailAddress')}
-                sortable
-                sortDirection={this.isSorted('emailAddress')}
-                >
-                Email Address
-              </ListHeading>
-              <ListHeading
-                handleClick={() => this.handleClick('publishedArticles')}
-                sortable
-                sortDirection={this.isSorted('publishedArticles')}
-                align="right"
-                >
-                Published
-              </ListHeading>
-              <ListHeading
-                handleClick={() => this.handleClick('lastLogin')}
-                sortable
-                sortDirection={this.isSorted('lastLogin')}
-                >
-                Last Login
-              </ListHeading>
-              <ListHeading>Actions</ListHeading>
-            </ListHeader>
-
-            <ListBody>
-              {mockItems
-                .sort((a, b) => {
-                  if (!this.state.sortField) return
-                  return a[this.state.sortField] > b[this.state.sortField]
-                    ? this.state.sortDirection === 'asc' ? 1 : -1
-                    : this.state.sortDirection === 'asc' ? -1 : 1
-                })
-                .map((row, i) => {
-                  return (
-                    <ListRow key={`row-${i}`}>
-                      <ListCell>
-                        <Link to="#">{row.name}</Link>
-                      </ListCell>
-                      <ListCell>{row.emailAddress}</ListCell>
-                      <ListCell align="right">{row.publishedArticles}</ListCell>
-                      <ListCell modifiers={[ 'muted' ]}>{row.lastLogin}</ListCell>
-                      <ListCell
-                        align="right"
-                        modifiers={[ 'shrink', 'nowrap' ]}
-                        >
-
-                        <ButtonGroup>
-                          <Button>Reset Password</Button>
-                          <Dropdown>
-                            <Menu>
-                              <MenuItem text="Revisions" />
-                              <MenuItem text="Delete" />
-                            </Menu>
-                          </Dropdown>
-                        </ButtonGroup>
-                      </ListCell>
-                    </ListRow>
-                  )
-                })
-              }
-            </ListBody>
-
-          </List>
-        </OverflowWrapper>
-      </Default>
-    )
-  }
+  return (
+    <Default toolbar={toolbar}>
+      <Heading size="huge">Administrators</Heading>
+      <OverflowWrapper>
+        <SortableList headings={headings} data={data} />
+      </OverflowWrapper>
+    </Default>
+  )
 }
 
 export default AdministratorList

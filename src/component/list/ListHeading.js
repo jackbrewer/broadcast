@@ -19,7 +19,7 @@ const ListHeading = ({ align, children, handleClick, sortable, sortDirection, mo
   )
 
   return (
-    <div className={listHeadingClassNames} onClick={handleClick}>
+    <div className={listHeadingClassNames} onClick={sortable && handleClick}>
       {children}
       {sortDirection === 'asc' && <Icon type={'arrow-down'} />}
       {sortDirection === 'desc' && <Icon type={'arrow-up'} />}
