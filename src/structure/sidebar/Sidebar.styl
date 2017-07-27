@@ -1,0 +1,74 @@
+$sidebar--reveal-speed-in = 200ms
+$sidebar--reveal-speed-out = 200ms
+$sidebar--panel-width = 200px
+
+.sidebar
+  display flex
+  flex 1 1 auto
+
+.sidebar__item
+  display flex
+  flex 1 1 auto
+
+.sidebar__item--primary
+  background-color $color--grey-10
+  flex-direction column
+  justify-content space-between
+  width 52px
+
+.sidebar__item--secondary
+  //
+
+.sidebar__primary-toggle
+  padding 10px
+
+.sidebar__panel
+  flex 1 1 auto
+  display flex
+  background-color $color--grey-95
+  width $sidebar--panel-width
+
+.sidebar__panel-inner
+  flex 1 0 auto
+  display flex
+  overflow hidden
+  width $sidebar--panel-width
+
+
+
+
+.sidebar-reveal-enter
+  width 0
+
+.sidebar-reveal-enter.sidebar-reveal-enter-active
+  transition all $sidebar--reveal-speed-in $ease-out-expo
+  width $sidebar--panel-width
+
+.sidebar-reveal-leave
+  width $sidebar--panel-width
+
+.sidebar-reveal-leave.sidebar-reveal-leave-active
+  transition all $sidebar--reveal-speed-out ease-out
+  width 0
+
+
+// TODO: move to standalone component
+.sidebar-button
+  width 52px
+  height 52px
+  background rgba($color--grey-15, 0)
+  border 0
+
+  & + &
+    margin-top 0
+
+  &:hover
+  &:focus
+  &:active
+  &.is-active
+    background rgba($color--grey-15, 1)
+    outline 0
+
+  path
+  circle
+    fill $color--white

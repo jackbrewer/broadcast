@@ -9,7 +9,6 @@ const Header = () => (
     role="banner"
     >
     <SiteTitle href="/" />
-    <div className="header__meta">v2.3 - 9 May</div>
   </header>
 )
 

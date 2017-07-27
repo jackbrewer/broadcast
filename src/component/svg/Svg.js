@@ -3,18 +3,24 @@ import PropTypes from 'prop-types'
 
 import ArrowDown from '../../asset/image/svg/arrow-down.svg'
 import ArrowUp from '../../asset/image/svg/arrow-up.svg'
+import ArrowLeft from '../../asset/image/svg/arrow-left.svg'
+import ArrowRight from '../../asset/image/svg/arrow-right.svg'
 import CalendarSvg from '../../asset/image/svg/calendar.svg'
 import CrossSvg from '../../asset/image/svg/cross.svg'
 import GithubSvg from '../../asset/image/svg/github.svg'
+import Menu from '../../asset/image/svg/menu.svg'
 import KebabSvg from '../../asset/image/svg/kebab.svg'
 import PickSvg from '../../asset/image/svg/pick.svg'
 
 const svgs = {
   'arrow-down': ArrowDown,
   'arrow-up': ArrowUp,
+  'arrow-left': ArrowLeft,
+  'arrow-right': ArrowRight,
   'calendar': CalendarSvg,
   'cross': CrossSvg,
   'github': GithubSvg,
+  'menu': Menu,
   'kebab': KebabSvg,
   'pick': PickSvg
 }

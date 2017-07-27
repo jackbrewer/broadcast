@@ -10,7 +10,8 @@ const Overlay = ({ children, handleClose, isActive, toolbar }) => (
   <CSSTransitionGroup
     transitionName="overlay-reveal"
     transitionEnterTimeout={300}
-    transitionLeaveTimeout={300}>
+    transitionLeaveTimeout={300}
+    >
     {isActive &&
       <div className="overlay">
         <div

@@ -14,8 +14,7 @@ const SiteTitle = ({ href, isFeature }) => {
       className={siteTitleClasses}
       {...href && { to: href }}
       >
-      <Icon type="pick" width={30} height={37} />
-      Picks <span>Backline</span>
+      <Icon type="pick" width={20} height={24} />
     </SiteTitleEl>
   )
 }

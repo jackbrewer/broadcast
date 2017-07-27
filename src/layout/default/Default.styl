@@ -8,19 +8,11 @@
   .default__item
     display flex
     flex-direction column
-
-  .default__item--sidebar
     flex 0 0 auto
-    flex-basis 200px
 
   .default__item--grow
     flex 1 1 auto
     overflow hidden // Stops wide tables breaking page layout
-
-+width-min($mq--tablet--landscape)
-  .default__item--sidebar
-    flex-basis 280px
-
 
 // TODO - this needs to be better
 .default__content-wrapper
@@ -37,4 +29,4 @@
   flex-direction column
   transition all 300ms ease-out
   &.is-blurred
-    filter blur(1px) grayscale(0.3)
+    filter blur(1px)
