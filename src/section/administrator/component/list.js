@@ -18,9 +18,9 @@ import mockData from '../fixture/administrator'
 const ListView = () => {
   const headings = [
     <ListHeading sortable key="name">Name</ListHeading>,
-    <ListHeading sortable key="emailAddress">emailAddress</ListHeading>,
-    <ListHeading sortable key="publishedArticles" align="right">publishedArticles</ListHeading>,
-    <ListHeading sortable key="lastLogin">lastLogin</ListHeading>,
+    <ListHeading sortable key="emailAddress">Email Address</ListHeading>,
+    <ListHeading sortable key="publishedArticles" align="right">Articles</ListHeading>,
+    <ListHeading sortable key="lastLogin">Last Login</ListHeading>,
     <ListHeading key="actions">Actions</ListHeading>
   ]
 
