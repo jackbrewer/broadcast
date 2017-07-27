@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import './Default.styl'
 
 // Default Components
@@ -11,6 +12,8 @@ import UserNavigation from '../../structure/user-navigation/UserNavigation'
 import Content from '../../structure/content/Content'
 
 const Default = ({ children, overlay, toolbar }) => {
+  const overlayActive = overlay && overlay.props.isActive
+
   return (
     <div className="default">
 
@@ -26,10 +29,17 @@ const Default = ({ children, overlay, toolbar }) => {
       <div className="default__item default__item--grow">
 
         <div className="default__content-wrapper">
-          {toolbar}
-          <Content>
-            {children}
-          </Content>
+          <div
+            className={classNames(
+              'default__content-wrapper-inner',
+              { 'is-blurred': overlayActive }
+            )}
+            >
+            {toolbar}
+            <Content>
+              {children}
+            </Content>
+          </div>
           {overlay}
         </div>
       </div>

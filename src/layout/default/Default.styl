@@ -28,3 +28,13 @@
   flex 1 1 0
   display flex
   flex-direction column
+  box-shadow 0 0 30px rgba($color--white, 1) inset
+
+.default__content-wrapper-inner
+  position relative
+  flex 1 1 0
+  display flex
+  flex-direction column
+  transition all 300ms ease-out
+  &.is-blurred
+    filter blur(1px) grayscale(0.3)

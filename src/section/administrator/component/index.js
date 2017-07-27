@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
 
 import Default from '../../../layout/default/Default'
 
@@ -77,8 +76,5 @@ class AdministratorView extends Component {
     )
   }
 }
-
-// BaseComponent.propTypes = {
-// }
 
 export default AdministratorView
