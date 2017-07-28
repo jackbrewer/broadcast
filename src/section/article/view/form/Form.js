@@ -4,11 +4,11 @@ import classNames from 'classnames'
 
 import { CSSTransitionGroup } from 'react-transition-group'
 
-import Default from '../../../layout/default/Default'
+import Default from '../../../../layout/default/Default'
 
-import Heading from '../../../component/heading/Heading'
-import Button from '../../../component/button/Button'
-import Field from '../../../component/field/Field'
+import Heading from '../../../../component/heading/Heading'
+import Button from '../../../../component/button/Button'
+import Field from '../../../../component/field/Field'
 
 class ArticleForm extends React.Component {
   constructor () {

@@ -44,7 +44,7 @@ class Sidebar extends Component {
         className={sidebarClassNames}
         >
         <div className="sidebar__item sidebar__item--primary">
-          <div>
+          <div className="sidebar__item--primary-top">
             <Header />
             <button
               className={classNames(
@@ -58,7 +58,7 @@ class Sidebar extends Component {
                 <Icon type="menu" width={20} height={19} a11yText="Open Navigation" />
               }
               {this.state.activePanel === 'navigation' &&
-                <Icon type="arrow-left" width={9} height={13.5} a11yText="Close Navigation" />
+                <Icon type="arrow-left" className="sidebar__collapse-icon" width={9} height={13.5} a11yText="Close Navigation" />
               }
             </button>
           </div>
@@ -74,7 +74,7 @@ class Sidebar extends Component {
               <Avatar name="Firstname Lastname" size={32} />
             }
             {this.state.activePanel === 'user' &&
-              <Icon type="arrow-left" width={9} height={13.5} a11yText="Close Navigation" />
+              <Icon type="arrow-left" className="sidebar__collapse-icon" width={9} height={13.5} a11yText="Close Navigation" />
             }
           </button>
         </div>

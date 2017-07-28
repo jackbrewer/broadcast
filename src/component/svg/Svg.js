@@ -35,6 +35,7 @@ class Svg extends Component {
     if (!this.SvgType) return
     // Send dimensions back to parent component
     const { getDimensions } = this.props
+    // TODO: If width/height not set, calculate them using viewbox coordinates
     const { width, height } = this.SvgType().props
     getDimensions && getDimensions(width, height)
   }

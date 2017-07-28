@@ -1,19 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import SortableList from '../../../component/sortable-list/SortableList'
-import ListHeading from '../../../component/list/ListHeading'
-import ListRow from '../../../component/list/ListRow'
-import ListCell from '../../../component/list/ListCell'
+import SortableList from '../../../../component/sortable-list/SortableList'
+import ListHeading from '../../../../component/list/ListHeading'
+import ListRow from '../../../../component/list/ListRow'
+import ListCell from '../../../../component/list/ListCell'
 
-import ButtonGroup from '../../../component/button-group/ButtonGroup'
-import Button from '../../../component/button/Button'
-import Dropdown from '../../../component/dropdown/Dropdown'
-import Menu from '../../../component/menu/Menu'
-import MenuItem from '../../../component/menu/MenuItem'
-import OverflowWrapper from '../../../component/overflow-wrapper/OverflowWrapper'
+import ButtonGroup from '../../../../component/button-group/ButtonGroup'
+import Button from '../../../../component/button/Button'
+import Dropdown from '../../../../component/dropdown/Dropdown'
+import Menu from '../../../../component/menu/Menu'
+import MenuItem from '../../../../component/menu/MenuItem'
+import OverflowWrapper from '../../../../component/overflow-wrapper/OverflowWrapper'
 
-import mockData from '../fixture/administrator'
+import mockData from '../../fixture/administrator'
 
 const ListView = () => {
   const headings = [
@@ -39,7 +39,7 @@ const ListView = () => {
           >
           <ButtonGroup>
             <Button>Reset Password</Button>
-            <Dropdown>
+            <Dropdown align="right">
               <Menu>
                 <MenuItem text="Revisions" />
                 <MenuItem text="Delete" />

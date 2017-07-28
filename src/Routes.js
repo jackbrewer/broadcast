@@ -8,8 +8,8 @@ import NotFound from './section/not-found/component/index'
 import Login from './section/user/component/login'
 
 // Component Pages
-import ArticleForm from './section/article/component/form'
-import AdministratorIndex from './section/administrator/component/index'
+import ArticleForm from './section/article/view/form/Form'
+import AdministratorIndex from './section/administrator/view/Administrator'
 
 class Routes extends Component {
   render () {

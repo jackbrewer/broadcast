@@ -5,7 +5,7 @@ import Heading from '../../../component/heading/Heading'
 
 const IndexPage = () => (
   <Default>
-    <Heading size="huge">Backline</Heading>
+    <Heading size="huge">Dashboard</Heading>
   </Default>
 )
 

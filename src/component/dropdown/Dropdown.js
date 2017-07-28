@@ -52,7 +52,7 @@ class Dropdown extends Component {
   }
 
   handleClickOutside (e) {
-    if (e.target.closest('.dropdown')) return
+    if (e.target.closest('.dropdown__list')) return
     this.hideDropdownList()
   }
 
@@ -74,13 +74,12 @@ class Dropdown extends Component {
   willLeave () {
     return {
       scale: spring(0, { stiffness: 300, damping: 26 }),
-      opacity: spring(0, { stiffness: 300, damping: 26 }),
-      rotate: spring(-5, { stiffness: 300, damping: 26 })
+      opacity: spring(0, { stiffness: 300, damping: 26 })
     }
   }
 
   render () {
-    const { text, children, iconType, maxHeight, modifiers } = this.props
+    const { align, text, children, iconType, maxHeight, modifiers } = this.props
     const dropdownTriggerClassNames = classNames(
       'button',
       'button--block',
@@ -104,7 +103,6 @@ class Dropdown extends Component {
             data: {},
             style: {
               scale: spring(1, { stiffness: 500, damping: 26 }),
-              rotate: spring(0, { stiffness: 500, damping: 26 }),
               opacity: spring(1, { stiffness: 500, damping: 26 })
             }
           } ]}
@@ -117,11 +115,14 @@ class Dropdown extends Component {
                 {items.map(item => {
                   return (
                     <div
-                      className="dropdown__list"
+                      className={classNames(
+                        'dropdown__list',
+                        `dropdown__list--${align}`
+                      )}
                       key={item.key}
                       style={{
                         opacity: item.style.opacity,
-                        transform: `scale(${item.style.scale}) rotate(${item.style.rotate}deg)`,
+                        transform: `scaleY(${item.style.scale})`,
                         maxHeight
                       }}
                       >
@@ -143,17 +144,19 @@ class Dropdown extends Component {
 }
 
 Dropdown.defaultProps = {
+  align: 'left',
   iconType: 'arrow-down',
   clickOutsideToClose: true
 }
 
 Dropdown.propTypes = {
-  text: PropTypes.string,
+  align: PropTypes.oneOf([ 'left', 'right' ]),
   children: PropTypes.node.isRequired,
   clickOutsideToClose: PropTypes.bool,
   iconType: PropTypes.string,
   maxHeight: PropTypes.number,
-  modifiers: PropTypes.arrayOf(PropTypes.string)
+  modifiers: PropTypes.arrayOf(PropTypes.string),
+  text: PropTypes.string
 }
 
 export default Dropdown
