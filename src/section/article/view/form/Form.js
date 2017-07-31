@@ -27,6 +27,13 @@ const FormView = () => (
       required
       type="text"
     />
+
+    <Field
+      label="Body"
+      name="body"
+      type="richText"
+    />
+
   </form>
 )
 
