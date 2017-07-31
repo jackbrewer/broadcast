@@ -36,6 +36,10 @@ $overlay--background-color ?= $color--white
   +width-min($mq--tablet)
     width 75%
 
+  .overlay--wide &
+    +width-min($mq--tablet)
+      width calc(100% - 52px)
+
   &:after
     content ''
     position absolute
@@ -56,6 +60,11 @@ $overlay--background-color ?= $color--white
   padding $spacing--default
   -webkit-overflow-scrolling touch
 
+
+
+// TODO Get rid of this. Needed to allow preview to reach 100% overlay height
+.overlay__inner .content-gutter
+  height 100%
 
 .overlay-reveal-enter
   .overlay__backdrop

@@ -4,10 +4,10 @@ import './Snackbar.styl'
 import { CSSTransitionGroup } from 'react-transition-group'
 
 class Snackbar extends Component {
-  componentDidUpdate () {
-    console.log('Did')
-    window.setTimeout(() => { console.log('Hello') }, 2000)
-  }
+  // componentDidUpdate () {
+  //   console.log('Did')
+  //   window.setTimeout(() => { console.log('Hello') }, 2000)
+  // }
 
   // componentWillUpdate () {
   //   if (!this.props.text) return

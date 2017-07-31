@@ -8,7 +8,7 @@ import NotFound from './section/not-found/component/index'
 import Login from './section/user/component/login'
 
 // Component Pages
-import ArticleForm from './section/article/view/form/Form'
+import ArticleIndex from './section/article/view/Article'
 import AdministratorIndex from './section/administrator/view/Administrator'
 
 class Routes extends Component {
@@ -18,7 +18,7 @@ class Routes extends Component {
         <Route exact path="/login" component={Login} />
 
         <Route exact path="/" component={Dashboard} />
-        <Route exact path="/article/form" component={ArticleForm} />
+        <Route exact path="/article" component={ArticleIndex} />
         <Route exact path="/administrator" component={AdministratorIndex} />
 
         <Route component={NotFound} />
