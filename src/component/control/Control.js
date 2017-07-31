@@ -8,7 +8,7 @@ import FileControl from './file/File'
 import DateControl from './date/Date'
 import TextControl from './text/Text'
 import TextareaControl from './textarea/Textarea'
-import RichTextControl from './editor/Editor'
+import RichTextControl from './rich-text/RichText'
 
 const Control = (props) => {
   const { type } = props

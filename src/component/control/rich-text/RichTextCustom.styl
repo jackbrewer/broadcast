@@ -1,0 +1,121 @@
+// Wrapper
+.rdw-editor-wrapper
+  border 1px solid $color--grey-75
+
+// Toolbar
+.rdw-editor-toolbar
+  border 0
+  background-color transparent
+  padding 0
+  margin 0
+  margin-right -1px
+  margin-bottom -1px
+
+  > *
+    margin 0
+    padding 0
+    border-radius 0
+    border 1px solid $color--grey-75
+    margin-top -1px
+    margin-left -1px
+
+  // > *:not(:last-child)
+  //   margin-right 5px
+
+.rdw-option-wrapper
+  margin 0
+  padding 0
+  border 0
+  height 46px
+  width 46px
+  border-radius 0
+
+  &:hover
+  &:focus
+    box-shadow none
+    background-color $color--grey-90
+
+.rdw-option-active
+  box-shadow none
+  background-color $color--primary
+  background-color $color--primary
+
+  img
+    filter invert(1)
+
+  &:hover
+  &:focus
+    background-color tint($color--primary, 10%)
+
+.rdw-block-dropdown
+  margin 0
+  border 0
+  height 44px
+
+  &:hover
+  &:focus
+    box-shadow none
+
+  > a
+    height 100%
+
+.rdw-dropdownoption-default
+  margin-left 0
+
+// .rdw-block-dropdown
+//   width (46px * 2) - 2px
+
+.rdw-dropdown-carettoopen
+.rdw-dropdown-carettoclose
+  top 45%
+
+// Content
+.rdw-editor-main
+  border-top 1px solid $color--grey-75
+  padding 0 10px
+  min-height 100px
+
+  // TODO: Duplication of prose  - look to remove duplication
+  > * + *
+    margin-top $spacing--default
+
+  h1, h2, h3, h4, h5, h6
+    font-family $font--heading
+    font-weight normal
+    line-height 1.2
+    color $color--black
+
+  >
+    h2, h3, h4, h5, h6
+      margin-top $spacing--default * 2
+
+  h1
+    font-size 1.8em
+  h2
+    font-size 1.6em
+  h3
+    font-size 1.4em
+  h4
+    font-size 1.2em
+  h5
+    font-size 1.1em
+  h6
+    font-size 1em
+
+  // Stop text extending beyond a reasonable line-length
+  p, li
+    max-width rem(900)
+
+  // Stop lists next to floated elements losing their bullets/numbers.
+  // Commented as was causing issues in components such as Swatch when nested in prose
+  // ul, ol
+  //   display table
+
+  a:not(.button)
+    color $color--grey-25
+    text-decoration underline
+
+    &:hover
+    &:focus
+    &:active
+      color $color--primary

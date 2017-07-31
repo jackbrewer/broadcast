@@ -1,10 +1,12 @@
 import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import './RichText.styl'
+import './RichTextDraft.styl'
+import './RichTextRdw.styl'
+import './RichTextCustom.styl'
 
+import toolbarOptions from './toolbar-options'
 import { Editor } from 'react-draft-wysiwyg'
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 
 const RichText = ({ children, className, modifiers }) => {
   const richTextClassNames = classNames(
@@ -17,7 +19,11 @@ const RichText = ({ children, className, modifiers }) => {
     <div
       className={richTextClassNames}
       >
-      <Editor />
+      <Editor
+        toolbar={toolbarOptions}
+        spellCheck
+        stripPastedStyles
+      />
     </div>
   )
 }
