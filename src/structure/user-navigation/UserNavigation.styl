@@ -1,0 +1,49 @@
+//
+// USER NAVIGATION
+// ===============
+//
+
+.user-navigation
+  flex 1 0 auto
+  display flex
+  flex-direction column
+  justify-content space-between
+  padding $spacing--default
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  background-color $color--grey-15
+  color $color--white
+
+.user-navigation__content
+  //
+
+.user-navigation__hero
+  text-align center
+  border-bottom 1px solid $color--grey-25
+  padding-bottom $spacing--default
+
+.user-navigation__avatar
+  margin-bottom 10px
+
+.user-navigation__content
+  //
+
+.user-navigation__name
+  font-weight bold
+
+// TODO combine with primary nav styles
+.user-navigation__links
+  padding 10px 0
+
+  a
+    color $color--white
+    display block
+
+    &:hover
+    &:active
+    &:focus
+      color $color--primary
+      text-decoration underline
+
+.user-navigation__footer
+  text-align center

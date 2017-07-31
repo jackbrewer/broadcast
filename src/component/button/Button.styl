@@ -13,19 +13,20 @@
 .button
   display inline-block
   border 0
-  vertical-align middle
   cursor pointer
   overflow visible // removes padding in IE
 
   // Presentational Styles
-  padding 0.5em 1em
-  line-height 1.2
+  padding 0.25em 0.5em
+  line-height $font--line-height
   font-size 1em
   font-family inherit
   text-align center
   text-decoration none
   color $color--white
   background-color $color--primary
+  border-radius $border-radius--default
+  min-width 30px
 
   &:focus
   &:hover
@@ -37,6 +38,22 @@
   &:active
     background-color tint($color--primary, 20%)
 
+  .icon
+    vertical-align baseline
+
+    &:first-child
+      margin-right 10px
+
+    &:last-child
+      margin-left 10px
+
+    &:only-child
+      margin-left 0
+      margin-right 0
+
+  path
+  circle
+    fill $color--white
 
 //
 // BUTTON MODIFIERS
@@ -54,6 +71,10 @@
 
   &:active
     background-color tint($color--primary, 80%)
+
+  path
+  circle
+    fill $color--primary
 
 
 //

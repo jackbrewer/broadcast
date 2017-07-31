@@ -5,10 +5,14 @@ import './Button.styl'
 
 import { Link } from 'react-router-dom'
 
-const Button = ({ children, className, disabled, href, onClick, target, type }) => {
+const Button = ({ children, className, disabled, href, modifiers, onClick, target, type }) => {
   const absoluteUrlRegEx = /^\w[\w-.+]+:/ // http://regexr.com/3fhfg
   const commonAttributes = {
-    className: classNames('button', className),
+    className: classNames(
+      'button',
+      modifiers && modifiers.map(modifierClass => `button--${modifierClass}`),
+      className
+    ),
     disabled,
     onClick
   }
@@ -59,6 +63,7 @@ Button.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   href: PropTypes.string,
+  modifiers: PropTypes.arrayOf(PropTypes.string),
   onClick: PropTypes.func,
   target: PropTypes.string,
   type: PropTypes.oneOf([ 'button', 'reset', 'submit' ])

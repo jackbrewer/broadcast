@@ -1,0 +1,77 @@
+//
+// NAVIGATION
+// ==========
+//
+
+$navigation--background-color = $color--grey-15
+
+.navigation
+  position relative
+  width 100%
+  background-color $navigation--background-color
+  color $color--white
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+  +width-min($mq--tablet)
+    flex 1 1 0
+    display flex
+
+  &:before
+  &:after
+    content ''
+    position absolute
+    left 0
+    right 0
+    height $spacing--default
+
+  &:before
+    top 0
+    background-image linear-gradient(to bottom, rgba($navigation--background-color, 1), rgba($navigation--background-color, 0))
+
+  &:after
+    bottom 0
+    background-image linear-gradient(to top, rgba($navigation--background-color, 1), rgba($navigation--background-color, 0))
+
+
+.navigation__inner
+  flex 1 1 auto
+  min-height 0
+  padding $spacing--default
+  overflow-y auto
+  -webkit-overflow-scrolling touch
+
+  h3
+    font-weight bold
+
+    &:not(:first-child)
+      margin-top $spacing--default
+
+  li
+    display block
+
+    li
+      margin-left 20px
+
+    ul
+      // TODO: Better a11y hiding method
+      display none
+
+    a.is-active + ul
+      display block
+
+
+
+.navigation__link
+  display block
+  color $color--white
+
+  &.is-active
+    color $color--primary
+    text-decoration none
+
+  &:hover
+  &:active
+  &:focus
+    color $color--primary
+    text-decoration underline

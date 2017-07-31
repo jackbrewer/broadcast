@@ -1,0 +1,107 @@
+$sidebar--reveal-speed-in = 200ms
+$sidebar--reveal-speed-out = 200ms
+$sidebar--panel-width = 200px
+
+.sidebar
+  display flex
+  flex 1 1 auto
+  flex-direction column
+
+  +width-min($mq--tablet)
+    flex-direction row
+
+
+.sidebar__item
+  display flex
+  flex 1 1 auto
+
+.sidebar__item--primary
+  background-color $color--grey-10
+  justify-content space-between
+
+  +width-min($mq--tablet)
+    flex-direction column
+    width 52px
+
+.sidebar__item--primary-top
+  display flex
+
+  +width-min($mq--tablet)
+    flex-direction column
+
+.sidebar__item--secondary
+  &:empty
+    display none
+
+.sidebar__primary-toggle
+  padding 10px
+
+.sidebar__panel
+  flex 1 1 auto
+  display flex
+  background-color $color--grey-95
+  width $sidebar--panel-width
+
+.sidebar__panel-inner
+  flex 1 0 auto
+  display flex
+  overflow hidden
+  width $sidebar--panel-width
+
+.sidebar__collapse-icon
+  +width-max($mq--tablet - 1)
+    transform rotate(90deg)
+
++width-max($mq--tablet - 1)
+  .sidebar-reveal-enter
+    max-height 0
+
+  .sidebar-reveal-enter.sidebar-reveal-enter-active
+    transition all $sidebar--reveal-speed-in $ease-out-expo
+    max-height 100vh
+
+  .sidebar-reveal-leave
+    max-height $sidebar--panel-width
+
+  .sidebar-reveal-leave.sidebar-reveal-leave-active
+    transition all $sidebar--reveal-speed-out ease-out
+    max-height 0
+
++width-min($mq--tablet)
+  .sidebar-reveal-enter
+    width 0
+
+  .sidebar-reveal-enter.sidebar-reveal-enter-active
+    transition all $sidebar--reveal-speed-in $ease-out-expo
+    width $sidebar--panel-width
+
+  .sidebar-reveal-leave
+    width $sidebar--panel-width
+
+  .sidebar-reveal-leave.sidebar-reveal-leave-active
+    transition all $sidebar--reveal-speed-out ease-out
+    width 0
+
+
+
+// TODO: move to standalone component
+.sidebar-button
+  display inline-block
+  width 52px
+  height 52px
+  background rgba($color--grey-15, 0)
+  border 0
+
+  & + &
+    margin-top 0
+
+  &:hover
+  &:focus
+  &:active
+  &.is-active
+    background rgba($color--grey-15, 1)
+    outline 0
+
+  path
+  circle
+    fill $color--white

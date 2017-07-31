@@ -1,0 +1,26 @@
+//
+// MULTI SELECT SUMMARY
+// ====================
+//
+
+
+.multi-select-summary
+  min-width 300px
+  max-height 30px
+  transition all $transition--default-out ease
+  overflow hidden
+
+  &:empty
+    max-height 0
+
+.multi-select-summary__inner
+  border-top 1px solid $color--grey-90
+  padding 6px 15px
+  display flex
+  justify-content space-between
+  font-size 0.8em
+  text-transform uppercase
+  color $color--grey-50
+
+  .text-button
+    text-transform uppercase

@@ -1,0 +1,45 @@
+//
+// BUTTON GROUP
+// ============
+// Looks a little more complex than it should, but this CSS intentionally
+// ONLY removes border-radius - it never adds it. This way, children can
+// still specify their own different radii as required.
+//
+
+.button-group
+  display inline-block
+
+  > * + *
+    margin-left 1px
+
+  > .button:not(:first-child):not(:last-child)
+  > .dropdown:not(:first-child):not(:last-child) > .button
+    border-radius 0
+
+  > .button:not(:only-child)
+
+    &:first-child
+      border-top-right-radius 0
+      border-bottom-right-radius 0
+
+    &:last-child
+      border-top-left-radius 0
+      border-bottom-left-radius 0
+
+  > .dropdown:not(:only-child)
+
+    &:first-child > .button
+      border-top-right-radius 0
+      border-bottom-right-radius 0
+
+    &:last-child > .button
+      border-top-left-radius 0
+      border-bottom-left-radius 0
+
+
+.button-group--justified
+  display flex
+
+  > .button
+  > .dropdown
+    flex 1 0 0

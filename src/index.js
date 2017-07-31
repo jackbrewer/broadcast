@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-snapshot'
-import App from './layout/app/App'
+import App from './structure/app/App'
 
 render(<App />, document.getElementById('root'))
 

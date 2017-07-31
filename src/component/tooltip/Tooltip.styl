@@ -1,0 +1,47 @@
+//
+// TOOLTIP
+// ============
+//
+
+.tooltip
+  position relative
+  cursor help
+
+  &:focus
+    outline 2px solid black
+
+.tooltip__trigger
+  //
+
+.tooltip__backdrop
+  position fixed
+  top 0
+  right 0
+  bottom 0
+  left 0
+  background-color rgba($color--black, 0.1)
+  z-index 9
+
+.tooltip__content
+  position absolute
+  background-color $color--grey-10
+  color $color--white
+  z-index 10
+  padding 5px 10px 7px
+  font-size 14px
+  line-height 1.25
+  outline 2px solid lime
+  outline-offset -5px
+  min-width 400px
+
+.tooltip__content--top
+  bottom 100%
+
+.tooltip__content--bottom
+  top 100%
+
+.tooltip__content--left
+  left 0
+
+.tooltip__content--right
+  right 0

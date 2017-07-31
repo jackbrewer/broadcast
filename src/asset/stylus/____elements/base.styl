@@ -11,6 +11,12 @@
 // BASIC ELEMENTS
 //
 
+html, body
+  height 100%
+
+  +width-min($mq--tablet)
+    overflow hidden
+
 body
   background-color $color--white
   min-width $mq--resize-min
@@ -113,5 +119,5 @@ hr
   height 1px
   width 100%
   border 0
-  background-color $color--grey
+  background-color $color--grey-50
   margin $spacing--default 0

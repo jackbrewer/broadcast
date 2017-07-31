@@ -1,0 +1,55 @@
+//
+// MENU ITEM
+// =========
+//
+
+
+.menu-item
+  display block
+  text-align left
+  width 100%
+  white-space nowrap
+  padding 5px 15px
+  color $color--grey-10
+  transition all $transition--default-out ease-out
+
+  &:hover
+    background-color $color--grey-95
+    text-decoration none
+    transition-duration $transition--default-in
+
+  &:focus
+    outline 2px solid $color--grey-10
+    outline-offset -2px
+    text-decoration none
+    transition-duration $transition--default-in
+
+.menu-item__subtext
+  font-size 0.75em
+  color $color--grey-50
+
+
+//
+// DISABLED
+//
+
+.menu-item.is-disabled
+  color $color--grey-75
+  cursor not-allowed
+  pointer-events none
+
+
+//
+// SELECTED
+//
+
+.menu-item.is-selected
+  color $color--white
+  background-color $color--primary
+
+  &:hover
+    background-color tint($color--primary, 20%)
+    text-decoration none
+
+  .menu-item__subtext
+    color $color--white
