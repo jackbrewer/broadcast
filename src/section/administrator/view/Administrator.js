@@ -8,6 +8,7 @@ import ListToolbar from './list/Toolbar'
 import Form from './form/Form'
 import FormToolbar from './form/Toolbar'
 
+import Panel from '../../../component/panel/Panel'
 import Overlay from '../../../component/overlay/Overlay'
 import Heading from '../../../component/heading/Heading'
 import Snackbar from '../../../component/snackbar/Snackbar'
@@ -62,7 +63,9 @@ class AdministratorView extends Component {
         toolbar={<FormToolbar handleCancel={this.handleCancel} handleSave={this.handleSave} />}
         handleClose={this.hideOverlay}
         >
-        <Form />
+        <Panel>
+          <Form />
+        </Panel>
       </Overlay>
     )
 
@@ -71,8 +74,10 @@ class AdministratorView extends Component {
         toolbar={<ListToolbar handleShowOverlay={this.showOverlay} handleSearch={this.handleSearch} />}
         overlay={FormOverlay}
         >
-        <Heading size="huge">Administrators</Heading>
-        <List />
+        <Panel>
+          <Heading size="huge">Administrators</Heading>
+          <List />
+        </Panel>
         <Snackbar {...this.state.snackbarContent} />
       </Default>
     )

@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 // Site Pages
-import Dashboard from './section/dashboard/component/index'
-import NotFound from './section/not-found/component/index'
+import Dashboard from './section/dashboard/view/Dashboard'
+import NotFound from './section/not-found/view/NotFound'
 
 import Login from './section/user/component/login'
 

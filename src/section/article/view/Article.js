@@ -10,6 +10,7 @@ import FormToolbar from './form/Toolbar'
 
 import Preview from './preview/Preview'
 
+import Panel from '../../../component/panel/Panel'
 import Overlay from '../../../component/overlay/Overlay'
 import Split from '../../../component/split/Split'
 import Heading from '../../../component/heading/Heading'
@@ -67,7 +68,9 @@ class ArticleView extends Component {
         handleClose={this.hideOverlay}
         >
         <Split>
-          <Form />
+          <Panel>
+            <Form />
+          </Panel>
           <Preview />
         </Split>
       </Overlay>
@@ -78,8 +81,10 @@ class ArticleView extends Component {
         toolbar={<ListToolbar handleShowOverlay={this.showOverlay} handleSearch={this.handleSearch} />}
         overlay={FormOverlay}
         >
-        <Heading size="huge">Articles</Heading>
-        <List />
+        <Panel>
+          <Heading size="huge">Articles</Heading>
+          <List />
+        </Panel>
         <Snackbar {...this.state.snackbarContent} />
       </Default>
     )

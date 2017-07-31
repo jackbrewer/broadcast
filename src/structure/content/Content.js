@@ -5,9 +5,7 @@ import './Content.styl'
 const Content = ({ children }) => (
   <main className="content" id="content" role="main">
     <div className="content__inner">
-      <div className="content-gutter">
-        {children}
-      </div>
+      {children}
     </div>
   </main>
 )
