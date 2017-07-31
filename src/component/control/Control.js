@@ -8,6 +8,7 @@ import FileControl from './file/File'
 import DateControl from './date/Date'
 import TextControl from './text/Text'
 import TextareaControl from './textarea/Textarea'
+import RichTextControl from './editor/Editor'
 
 const Control = (props) => {
   const { type } = props
@@ -17,7 +18,8 @@ const Control = (props) => {
     date: () => <DateControl {...props} />,
     file: () => <FileControl {...props} />,
     select: () => <SelectControl {...props} />,
-    textarea: () => <TextareaControl {...props} />
+    textarea: () => <TextareaControl {...props} />,
+    richText: () => <RichTextControl {...props} />
   }
 
   return componentMap[type]
