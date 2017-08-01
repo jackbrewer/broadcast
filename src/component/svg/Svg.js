@@ -14,6 +14,13 @@ import Menu from '../../asset/image/svg/menu.svg'
 import Phone from '../../asset/image/svg/phone.svg'
 import PickSvg from '../../asset/image/svg/pick.svg'
 
+import Gallery from '../../asset/image/svg/gallery.svg'
+import Photo from '../../asset/image/svg/photo.svg'
+import Quote from '../../asset/image/svg/quote.svg'
+import Rule from '../../asset/image/svg/rule.svg'
+import Text from '../../asset/image/svg/text.svg'
+import Video from '../../asset/image/svg/video.svg'
+
 const svgs = {
   'arrow-down': ArrowDown,
   'arrow-left': ArrowLeft,
@@ -22,11 +29,17 @@ const svgs = {
   'calendar': CalendarSvg,
   'computer': Computer,
   'cross': CrossSvg,
+  'gallery': Gallery,
   'github': GithubSvg,
   'kebab': KebabSvg,
   'menu': Menu,
   'phone': Phone,
-  'pick': PickSvg
+  'photo': Photo,
+  'pick': PickSvg,
+  'quote': Quote,
+  'rule': Rule,
+  'text': Text,
+  'video': Video
 }
 
 class Svg extends Component {
