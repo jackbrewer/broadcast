@@ -32,7 +32,7 @@ const ListView = () => {
         </ListCell>
         <ListCell>{row.emailAddress}</ListCell>
         <ListCell align="right">{row.publishedArticles}</ListCell>
-        <ListCell modifiers={[ 'muted' ]}>{row.lastLogin}</ListCell>
+        <ListCell><div className="text-muted">{row.lastLogin}</div></ListCell>
         <ListCell
           align="right"
           modifiers={[ 'shrink', 'nowrap' ]}

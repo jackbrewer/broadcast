@@ -15,6 +15,8 @@ $control--text
   background-color $color--white
   border-radius 0
   color inherit
+  caret-color $color--primary // @stylint ignore
+
   &:focus
     border-color $color--primary
     outline 0
@@ -56,40 +58,39 @@ $control--text
   font-family inherit
 
 
-
-
-.control--feature
-  border 0
-  border-bottom 1px solid $color--grey-75
-  padding-left 0
-  padding-right 0
-
-  transition all 300ms ease-out
-  &[value='']:not(:focus)
-    background-color tint($color--primary, 90%)
-
-.control--medium-type
-  font-size 30px
-
-.control--large-type
-  font-size 40px
-
-
-.control--inline-muted
-  border 0
-  color $color--grey-75
-  padding-left 0
-  padding-right 0
-  transition all 300ms ease-out
-  border-bottom 1px solid transparent
-
-  &:hover
-  &:focus
-  &:active
-    color inherit
-    border-bottom 1px solid
-
-
 .control--compact
   padding-top 0
   padding-bottom 0
+
+
+
+// .control--feature
+//   border 0
+//   border-bottom 1px solid $color--grey-75
+//   padding-left 0
+//   padding-right 0
+//
+//   transition all 300ms ease-out
+//   &[value='']:not(:focus)
+//     background-color tint($color--primary, 90%)
+//
+// .control--medium-type
+//   font-size 30px
+//
+// .control--large-type
+//   font-size 40px
+//
+//
+// .control--inline-muted
+//   border 0
+//   color $color--grey-75
+//   padding-left 0
+//   padding-right 0
+//   transition all 300ms ease-out
+//   border-bottom 1px solid transparent
+//
+//   &:hover
+//   &:focus
+//   &:active
+//     color inherit
+//     border-bottom 1px solid

@@ -15,6 +15,19 @@ const Avatar = ({ className, modifiers, name, size, src }) => {
     className
   )
 
+  function stringToColour (str) {
+    let hash = 0
+    for (let i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash)
+    }
+    let colour = '#'
+    for (let i = 0; i < 3; i++) {
+      var value = (hash >> (i * 8)) & 0xFF
+      colour += ('00' + value.toString(16)).substr(-2)
+    }
+    return colour
+  }
+
   return (
     <div
       className={avatarClassNames}
@@ -22,7 +35,8 @@ const Avatar = ({ className, modifiers, name, size, src }) => {
         fontSize,
         height: size,
         lineHeight: `${size}px`,
-        width: size
+        width: size,
+        backgroundColor: stringToColour(name)
       }}
       >
       {src &&

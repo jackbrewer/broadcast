@@ -19,15 +19,17 @@
   display flex
   flex-wrap wrap
   justify-content space-between
-  padding $spacing--default * 0.5
 
-  +width-min($mq--tablet)
-    padding-left $spacing--default
-    padding-right $spacing--default
+  > *
+    padding $spacing--default * 0.5
 
-  +width-min($mq--desktop--medium)
-    padding-left $spacing--default * 2
-    padding-right $spacing--default * 2
+    +width-min($mq--tablet)
+      padding-left $spacing--default
+      padding-right $spacing--default
+
+    +width-min($mq--desktop--medium)
+      padding-left $spacing--default * 2
+      padding-right $spacing--default * 2
 
 .toolbar--light
   background-color $color--white

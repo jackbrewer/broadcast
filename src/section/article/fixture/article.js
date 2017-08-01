@@ -1,40 +1,34 @@
-const articles = [
-  {
-    name: 'Michael Turner',
-    emailAddress: 'michael.turner63@example.com',
-    lastLogin: '2 days ago',
-    publishedArticles: 1
-  },
-  {
-    name: 'Evan Spencer',
-    emailAddress: 'evan.spencer93@example.com',
-    lastLogin: '1 day ago',
-    publishedArticles: 2
-  },
-  {
-    name: 'Rose Bennett',
-    emailAddress: 'rose.bennett64@example.com',
-    lastLogin: '5 minutes ago',
-    publishedArticles: 10
-  },
-  {
-    name: 'Sue Butler',
-    emailAddress: 'sue.butler27@example.com',
-    lastLogin: '4 June 2017',
-    publishedArticles: 3
-  },
-  {
-    name: 'Marie Stephens',
-    emailAddress: 'marie.stephens96@example.com',
-    lastLogin: 'Never',
-    publishedArticles: 20
-  },
-  {
-    name: 'Jordan Robertson',
-    emailAddress: 'jordan.robertson73@example.com',
-    lastLogin: '2 days ago',
-    publishedArticles: 0
-  }
-]
+import headline from './mock-data/headline'
+import body from './mock-data/body'
+import createdDate from './mock-data/createdDate'
+import author from './mock-data/author'
 
-export default articles
+function randomNumber (min, max) {
+  return Math.floor(Math.random() * (max - min) + min)
+}
+
+function generateMockArticle () {
+  const max = 100
+  const i = Math.floor(Math.random() * max)
+
+  return {
+    headline: headline[i].data,
+    createdDate: createdDate[i].data,
+    author: author[i].data,
+
+    body: body[Math.floor(Math.random() * body.length)].data,
+
+    imgSrc: `http://img.clock.co.uk/${randomNumber(70, 200)}x${randomNumber(70, 200)}`
+  }
+}
+
+function generateMockArticles (quantity) {
+  let n = quantity
+  const articles = []
+  while (n-- > 0) {
+    articles.push(generateMockArticle())
+  }
+  return articles
+}
+
+export default generateMockArticles

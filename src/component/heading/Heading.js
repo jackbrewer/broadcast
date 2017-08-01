@@ -29,7 +29,7 @@ Heading.propTypes = {
   className: PropTypes.string,
   level: PropTypes.oneOf([ 1, 2, 3, 4, 5, 6 ]),
   modifiers: PropTypes.arrayOf(PropTypes.string),
-  size: PropTypes.oneOf([ 'huge', 'regular', 'small' ])
+  size: PropTypes.oneOf([ 'huge', 'regular', 'small', 'tiny' ])
 }
 
 export default Heading

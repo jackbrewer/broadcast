@@ -10,6 +10,11 @@
   border-width 1px 0 0
   padding 10px
   border-collapse collapse
+  vertical-align middle
+  height 100% // Allows children to also use height 100%
+
+  > * + *
+    margin-top 5px
 
   &:first-child
     border-left-width 1px
@@ -29,13 +34,11 @@
 .list-cell--center
   text-align center
 
-
 .list-cell--shrink
   width 1px
 
 .list-cell--nowrap
   white-space nowrap
 
-.list-cell--muted
-  font-size 0.9em
-  color $color--grey-50
+.list-cell--full-bleed
+  padding 0

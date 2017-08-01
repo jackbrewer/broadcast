@@ -39,11 +39,12 @@ class SortableList extends Component {
     return (
       <List>
         <ListHeader>
-          {headings.map(heading => {
+          {headings.map((heading, i) => {
             return React.cloneElement(heading, {
               handleClick: () => this.handleClick(heading.key),
               sortField: this.state.sortField,
-              sortDirection: this.isSorted(heading.key)
+              sortDirection: this.isSorted(heading.key),
+              key: i
             })
           })}
         </ListHeader>
