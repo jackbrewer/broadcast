@@ -6,12 +6,12 @@ import WidgetPickerItem from './WidgetPickerItem'
 const WidgetPicker = () => {
   return (
     <div className="widget-picker">
-      <WidgetPickerItem icon="text" name="Text" />
-      <WidgetPickerItem icon="photo" name="Image" />
-      <WidgetPickerItem icon="video" name="Video" />
-      <WidgetPickerItem icon="quote" name="Quote" />
-      <WidgetPickerItem icon="gallery" name="Gallery" />
-      <WidgetPickerItem icon="rule" name="Rule" />
+      <WidgetPickerItem icon="text" type="Text" />
+      <WidgetPickerItem icon="photo" type="Image" />
+      <WidgetPickerItem icon="video" type="Video" />
+      <WidgetPickerItem icon="quote" type="Quote" />
+      <WidgetPickerItem icon="gallery" type="Gallery" />
+      <WidgetPickerItem icon="rule" type="Rule" />
     </div>
   )
 }

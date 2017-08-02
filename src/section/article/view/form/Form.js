@@ -3,6 +3,7 @@ import React from 'react'
 import Heading from '../../../../component/heading/Heading'
 import Field from '../../../../component/field/Field'
 
+import WidgetForm from '../../../../component/widget-form/WidgetForm'
 import WidgetPicker from '../../../../component/widget-picker/WidgetPicker'
 
 const FormView = () => (
@@ -14,7 +15,6 @@ const FormView = () => (
       name="headline"
       required
       type="text"
-      autoFocus
     />
 
     <Field
@@ -32,6 +32,9 @@ const FormView = () => (
     />
 
     <Heading level={2}>Content</Heading>
+
+    <WidgetForm type="Text" icon="text" />
+    <WidgetForm type="Image" icon="photo" />
 
     <WidgetPicker />
 

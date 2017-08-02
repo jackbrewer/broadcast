@@ -1,0 +1,36 @@
+//
+// AUTO JUSTIFY
+// ============
+// http://codepen.io/jackbrewer/pen/kkmOvv
+//
+
+
+$auto-justify-spacing = ($spacing--default / 2)
+
+.auto-justify
+  display flex
+  justify-content space-between
+  flex-wrap wrap
+
+
+.auto-justify__item
+  //
+
+
+//
+// SPACED
+//
+
+.auto-justify--spaced
+  margin $spacing--default * -0.5
+
+  & > .auto-justify__item
+    padding $spacing--default * 0.5
+
+
+//
+// REVERSED
+//
+
+.auto-justify--reversed
+  flex-wrap wrap-reverse

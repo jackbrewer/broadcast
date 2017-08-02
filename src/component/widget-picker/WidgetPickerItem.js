@@ -5,7 +5,7 @@ import './WidgetPickerItem.styl'
 
 import Icon from '../icon/Icon'
 
-const WidgetPickerItem = ({ icon, name }) => {
+const WidgetPickerItem = ({ icon, type }) => {
   return (
     <button
       className="widget-picker__item text-button"
@@ -19,7 +19,7 @@ const WidgetPickerItem = ({ icon, name }) => {
           </div>
         }
         <div className="flag__body">
-          {name}
+          {type}
         </div>
       </div>
     </button>
@@ -27,7 +27,7 @@ const WidgetPickerItem = ({ icon, name }) => {
 }
 
 WidgetPickerItem.propTypes = {
-  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   icon: PropTypes.string
 }
 
