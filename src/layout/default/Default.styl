@@ -1,18 +1,19 @@
 .default
   height 100%
+  display flex
+  flex-direction column
 
-+width-min($mq--tablet)
-  .default
-    display flex
+  +width-min($mq--tablet)
+    flex-direction row
 
-  .default__item
-    display flex
-    flex-direction column
-    flex 0 0 auto
+.default__item
+  display flex
+  flex-direction column
+  flex 0 0 auto
 
-  .default__item--grow
-    flex 1 1 auto
-    overflow hidden // Stops wide tables breaking page layout
+.default__item--grow
+  flex 1 1 auto
+  overflow hidden // Stops wide tables breaking page layout
 
 // TODO - this needs to be better
 .default__content-wrapper
@@ -28,5 +29,6 @@
   display flex
   flex-direction column
   transition all 300ms ease-out
+
   &.is-blurred
     filter blur(1px)
