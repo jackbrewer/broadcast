@@ -1,13 +1,20 @@
 import React from 'react'
 
+import Form from '../../../../component/form/Form'
 import Heading from '../../../../component/heading/Heading'
 import Field from '../../../../component/field/Field'
+import Button from '../../../../component/button/Button'
 
 import WidgetForm from '../../../../component/widget-form/WidgetForm'
 import WidgetPicker from '../../../../component/widget-picker/WidgetPicker'
 
+function handleSubmit (e, data) {
+  e.preventDefault()
+  alert('Form submitted: ' + JSON.stringify(data, null, 2)) // eslint-disable-line no-undef
+}
+
 const FormView = () => (
-  <form action="" method="post">
+  <Form action="" method="post" onSubmit={handleSubmit}>
     <Heading level={2}>Basic Details</Heading>
 
     <Field
@@ -15,13 +22,14 @@ const FormView = () => (
       name="headline"
       required
       type="text"
+      value=""
     />
 
     <Field
       label="Short Headline"
       name="shortHeadline"
-      required
       type="text"
+      value=""
     />
 
     <Field
@@ -29,6 +37,7 @@ const FormView = () => (
       name="slug"
       required
       type="text"
+      value=""
     />
 
     <Heading level={2}>Content</Heading>
@@ -38,7 +47,9 @@ const FormView = () => (
 
     <WidgetPicker />
 
-  </form>
+    <Button type="submit">Save</Button>
+
+  </Form>
 )
 
 export default FormView

@@ -2,8 +2,6 @@ import React, { Children, Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import Button from '../button/Button'
-
 class Form extends Component {
   constructor (props) {
     super(props)
@@ -13,6 +11,7 @@ class Form extends Component {
         return { [child.props.name]: child.props.value }
       }
     )
+
     this.state = Object.assign({}, ...initialValues)
 
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -42,7 +41,7 @@ class Form extends Component {
   }
 
   render () {
-    const { action, children, className, method, onChange, onSubmit, submitText, ...other } = this.props
+    const { action, children, className, method, onSubmit, submitText, ...other } = this.props
     const formClasses = classNames(
       'form',
       className
@@ -54,7 +53,6 @@ class Form extends Component {
         className={formClasses}
         method={method}
         onSubmit={(e) => onSubmit(e, this.state)}
-        onChange={(e) => onChange(e, this.state)}
         {...other}
         >
         {Children.map(children,
@@ -63,9 +61,6 @@ class Form extends Component {
             value: this.state[child.props.name]
           })
         )}
-        <div className="form__actions">
-          <Button type="submit">{submitText}</Button>
-        </div>
       </form>
     )
   }
@@ -82,7 +77,6 @@ Form.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   method: PropTypes.oneOf([ 'get', 'post' ]),
-  onChange: PropTypes.func,
   onSubmit: PropTypes.func,
   submitText: PropTypes.string
 }

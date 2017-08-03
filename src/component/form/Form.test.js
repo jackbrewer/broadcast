@@ -3,7 +3,7 @@ import assert from 'assert'
 import { shallow, mount } from 'enzyme'
 import { spy } from 'sinon'
 
-import Form from '../Form'
+import Form from './Form'
 
 const defaultChild = (
   <input type="text" name="exampleInput" />
@@ -26,7 +26,6 @@ describe('Component: Form', function () {
     const wrapper = mount(<Form>{defaultChild}</Form>)
     assert.equal(wrapper.prop('action'), '')
     assert.equal(wrapper.prop('method'), 'post')
-    assert.equal(wrapper.find('button[type="submit"]').text(), 'Submit')
   })
 
   it('should not render additional attributes if props not set', function () {
@@ -39,12 +38,10 @@ describe('Component: Form', function () {
       action="/example"
       className="test-class"
       method="get"
-      submitText="Example Text"
     >{defaultChild}</Form>)
     assert.equal(wrapper.prop('action'), '/example')
     assert.equal(wrapper.prop('className'), 'form test-class')
     assert.equal(wrapper.prop('method'), 'get')
-    assert.equal(wrapper.find('Button').prop('children'), 'Example Text')
   })
 
   it('should trigger passed onSubmit function when submitted', function () {
