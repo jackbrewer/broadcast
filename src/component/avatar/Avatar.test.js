@@ -8,7 +8,7 @@ const requiredProps = () => ({
   name: 'Firstname Lastname'
 })
 
-describe('Component: Avatar', function () {
+describe.skip('Component: Avatar', function () {
   it('should error without expected default props', function () {
     const originalError = console.error
     console.error = message => { throw new Error(message) }
