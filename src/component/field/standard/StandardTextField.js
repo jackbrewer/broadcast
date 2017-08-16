@@ -35,8 +35,8 @@ const StandardTextField = ({ assistance, className, controlClassName, error, id,
           {...other}
         />
       </div>
-      {assistance ? <div className="field__assistance">{assistance}</div> : null}
       {error ? <div className="field__feedback">{error}</div> : null}
+      {assistance ? <div className="field__assistance">{assistance}</div> : null}
     </div>
   )
 }

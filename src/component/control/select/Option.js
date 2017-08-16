@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Option = ({ option }) => {
-  const { text, value } = option
+  const { text, value, ...other } = option
   return (
     <option
       value={value || text}
+      {...other}
       >
       {text}
     </option>

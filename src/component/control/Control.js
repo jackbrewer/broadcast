@@ -13,9 +13,9 @@ const Control = (props) => {
   const { type } = props
   const componentMap = {
     checkbox: () => <CheckControl {...props} />,
-    radio: () => <CheckControl {...props} />,
     date: () => <DateControl {...props} />,
     file: () => <FileControl {...props} />,
+    radio: () => <CheckControl {...props} />,
     select: () => <SelectControl {...props} />,
     textarea: () => <TextareaControl {...props} />
   }
