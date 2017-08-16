@@ -8,7 +8,7 @@ const requiredProps = () => ({
   name: 'Firstname Lastname'
 })
 
-describe.skip('Component: Avatar', function () {
+describe('Component: Avatar', function () {
   it('should error without expected default props', function () {
     const originalError = console.error
     console.error = message => { throw new Error(message) }
@@ -26,7 +26,7 @@ describe.skip('Component: Avatar', function () {
     assert.equal(wrapper.type(), 'div')
     assert.equal(wrapper.text(), 'FL')
     assert.equal(wrapper.prop('className'), 'avatar')
-    assert.deepEqual(wrapper.prop('style'), { 'fontSize': 23, 'height': 50, 'lineHeight': '50px', 'width': 50 })
+    assert.deepEqual(wrapper.prop('style'), { 'backgroundColor': '#a60f02', 'fontSize': 23, 'height': 50, 'lineHeight': '50px', 'width': 50 })
   })
 
   it('should add bespoke class(es) if passed', function () {
@@ -56,9 +56,20 @@ describe.skip('Component: Avatar', function () {
     const wrapper = shallow(<Avatar {...requiredProps()}
       size={100}
     />)
-    assert.deepEqual(wrapper.prop('style'), { 'fontSize': 47, 'height': 100, 'lineHeight': '100px', 'width': 100 })
+    assert.deepEqual(wrapper.prop('style'), { 'backgroundColor': '#a60f02', 'fontSize': 47, 'height': 100, 'lineHeight': '100px', 'width': 100 })
     wrapper.setProps({ size: 20 })
-    assert.deepEqual(wrapper.prop('style'), { 'fontSize': 9, 'height': 20, 'lineHeight': '20px', 'width': 20 })
+    assert.deepEqual(wrapper.prop('style'), { 'backgroundColor': '#a60f02', 'fontSize': 9, 'height': 20, 'lineHeight': '20px', 'width': 20 })
+  })
+
+  it('should display a generated colour using the supplied name', function () {
+    const wrapper = shallow(<Avatar
+      name="Alpha"
+    />)
+    assert.deepEqual(wrapper.prop('style').backgroundColor, '#3ec1c6')
+    wrapper.setProps({ name: 'bravo' })
+    assert.deepEqual(wrapper.prop('style').backgroundColor, '#8a4c9a')
+    wrapper.setProps({ name: 'charlie' })
+    assert.deepEqual(wrapper.prop('style').backgroundColor, '#72470d')
   })
 
   it('show an image if supplied', function () {
