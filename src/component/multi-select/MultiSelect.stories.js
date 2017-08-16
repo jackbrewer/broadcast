@@ -1,6 +1,5 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-// import { withKnobs, text, number } from '@storybook/addon-knobs'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import MultiSelect from './MultiSelect'
@@ -8,7 +7,6 @@ import MultiSelectItem from './MultiSelectItem'
 import Dropdown from '../dropdown/Dropdown'
 
 const stories = storiesOf('MultiSelect', module)
-// stories.addDecorator(withKnobs)
 
 const items = [
   { value: '1', text: 'Abu Dhabi', subText: 'United Arab Emirates' },
@@ -254,8 +252,7 @@ function handleSelection (items = []) {
   console.log(items)
 }
 
-stories.addWithInfo(
-  'Default',
+stories.add('Default',
   () => {
     return (
       <Router>
@@ -272,8 +269,7 @@ stories.addWithInfo(
   }
 )
 
-stories.addWithInfo(
-  'Multi-select with search',
+stories.add('Multi-select with search',
   () => {
     return (
       <Router>
@@ -290,8 +286,7 @@ stories.addWithInfo(
   }
 )
 
-stories.addWithInfo(
-  'Multi-select with summary',
+stories.add('Multi-select with summary',
   () => {
     return (
       <Router>
@@ -308,8 +303,7 @@ stories.addWithInfo(
   }
 )
 
-stories.addWithInfo(
-  'Multi-select with max-height',
+stories.add('Multi-select with max-height',
   () => {
     return (
       <Router>
@@ -326,59 +320,47 @@ stories.addWithInfo(
   }
 )
 
-stories.addWithInfo(
-  'Multi-select with pre-selected options',
-  () => {
-    return (
-      <Router>
-        <div>
-          <p>See console for current selection</p>
-          <MultiSelect bordered maxHeight={400} onSelection={handleSelection} selected={[ '1', '3', '5', '10' ]}>
+stories.add('Multi-select with pre-selected options',
+  () =>
+    <Router>
+      <div>
+        <p>See console for current selection</p>
+        <MultiSelect bordered maxHeight={400} onSelection={handleSelection} selected={[ '1', '3', '5', '10' ]}>
+          {items.map((item, i) => (
+            <MultiSelectItem key={`item-${i}`} {...item} />
+          ))}
+        </MultiSelect>
+      </div>
+    </Router>
+)
+
+stories.add('Multi-select with all features',
+  () =>
+    <Router>
+      <div>
+        <p>See console for current selection</p>
+        <MultiSelect bordered search summary maxHeight={400} onSelection={handleSelection}>
+          {items.map((item, i) => (
+            <MultiSelectItem key={`item-${i}`} {...item} />
+          ))}
+        </MultiSelect>
+      </div>
+    </Router>
+)
+
+stories.add('As Dropdown content',
+  () =>
+    <Router>
+      <div>
+        <p>Type 2+ characters to filter, click to select. See console for current selection.</p>
+        <br />
+        <Dropdown buttonText="Choose cities">
+          <MultiSelect search summary onSelection={handleSelection} maxHeight={225}>
             {items.map((item, i) => (
               <MultiSelectItem key={`item-${i}`} {...item} />
             ))}
           </MultiSelect>
-        </div>
-      </Router>
-    )
-  }
-)
-
-stories.addWithInfo(
-  'Multi-select with all features',
-  () => {
-    return (
-      <Router>
-        <div>
-          <p>See console for current selection</p>
-          <MultiSelect bordered search summary maxHeight={400} onSelection={handleSelection}>
-            {items.map((item, i) => (
-              <MultiSelectItem key={`item-${i}`} {...item} />
-            ))}
-          </MultiSelect>
-        </div>
-      </Router>
-    )
-  }
-)
-
-stories.addWithInfo(
-  'As Dropdown content',
-  () => {
-    return (
-      <Router>
-        <div>
-          <p>Type 2+ characters to filter, click to select. See console for current selection.</p>
-          <br />
-          <Dropdown buttonText="Choose cities">
-            <MultiSelect search summary onSelection={handleSelection} maxHeight={225}>
-              {items.map((item, i) => (
-                <MultiSelectItem key={`item-${i}`} {...item} />
-              ))}
-            </MultiSelect>
-          </Dropdown>
-        </div>
-      </Router>
-    )
-  }
+        </Dropdown>
+      </div>
+    </Router>
 )

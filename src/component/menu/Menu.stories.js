@@ -1,6 +1,5 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-// import { withKnobs, text, number } from '@storybook/addon-knobs'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import Menu from './Menu'
@@ -10,11 +9,8 @@ import MenuDivider from './MenuDivider'
 
 const stories = storiesOf('Menu', module)
 
-// stories.addDecorator(withKnobs)
-
-stories.addWithInfo(
-  'Default',
-  () => (
+stories.add('Default',
+  () =>
     <Router>
       <Menu bordered>
         <MenuItem text="One - Link" href="#one" />
@@ -26,5 +22,4 @@ stories.addWithInfo(
         <MenuItem text="Five - selected" selected />
       </Menu>
     </Router>
-  )
 )

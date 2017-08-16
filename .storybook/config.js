@@ -1,15 +1,15 @@
 import React from 'react'
 import { configure, addDecorator, setAddon } from '@storybook/react'
 
-import infoAddon, { setDefaults } from '@storybook/addon-info';
+import { setDefaults, withInfo } from '@storybook/addon-info';
 import { setOptions } from '@storybook/addon-options';
+import { withKnobs } from '@storybook/addon-knobs'
 
 import '../src/asset/stylus/index.styl'
 
 setOptions({
   name: 'Picks Backline',
-  url: '/',
-  downPanelInRight: true
+  url: '/'
 });
 
 setDefaults({
@@ -19,10 +19,14 @@ setDefaults({
   // maxPropArrayLength: 10,
   // maxPropStringLength: 100,
 })
-setAddon(infoAddon)
+// setAddon(infoAddon)
+
+addDecorator((story, context) => withInfo()(story)(context))
+
+addDecorator(withKnobs)
 
 addDecorator(story => (
-  <div style={{padding: '50px'}}>
+  <div style={{padding: '20px'}}>
     {story()}
   </div>
 ));

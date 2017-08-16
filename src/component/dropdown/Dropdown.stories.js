@@ -1,6 +1,5 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-// import { withKnobs, text, number } from '@storybook/addon-knobs'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import Dropdown from './Dropdown'
@@ -11,11 +10,8 @@ import MenuDivider from '../menu/MenuDivider'
 
 const stories = storiesOf('Dropdown', module)
 
-// stories.addDecorator(withKnobs)
-
-stories.addWithInfo(
-  'Default',
-  () => (
+stories.add('Default',
+  () =>
     <Router>
       <Dropdown>
         <Menu>
@@ -28,12 +24,10 @@ stories.addWithInfo(
         </Menu>
       </Dropdown>
     </Router>
-  )
 )
 
-stories.addWithInfo(
-  'Custom button text',
-  () => (
+stories.add('Custom button text',
+  () =>
     <Router>
       <Dropdown text="Hello">
         <Menu>
@@ -46,12 +40,10 @@ stories.addWithInfo(
         </Menu>
       </Dropdown>
     </Router>
-  )
 )
 
-stories.addWithInfo(
-  'Custom icon',
-  () => (
+stories.add('Custom icon',
+  () =>
     <Router>
       <Dropdown iconType="kebab">
         <Menu>
@@ -64,12 +56,10 @@ stories.addWithInfo(
         </Menu>
       </Dropdown>
     </Router>
-  )
 )
 
-stories.addWithInfo(
-  'Max height',
-  () => (
+stories.add('Max height',
+  () =>
     <Router maxHeight={200}>
       <Dropdown icon="kebab">
         <Menu>
@@ -82,5 +72,4 @@ stories.addWithInfo(
         </Menu>
       </Dropdown>
     </Router>
-  )
 )

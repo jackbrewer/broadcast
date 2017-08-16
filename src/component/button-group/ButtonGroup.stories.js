@@ -1,6 +1,5 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-// import { withKnobs, text } from '@storybook/addon-knobs'
 
 import ButtonGroup from './ButtonGroup'
 import Button from '../button/Button'
@@ -10,41 +9,32 @@ import MenuItem from '../menu/MenuItem'
 
 const stories = storiesOf('ButtonGroup', module)
 
-// stories.addDecorator(withKnobs)
-
-stories.addWithInfo(
-  'Three buttons',
-  () => (
+stories.add('Three buttons',
+  () =>
     <ButtonGroup>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
     </ButtonGroup>
-  )
 )
 
-stories.addWithInfo(
-  'Two buttons',
-  () => (
+stories.add('Two buttons',
+  () =>
     <ButtonGroup>
       <Button>One</Button>
       <Button>Two</Button>
     </ButtonGroup>
-  )
 )
 
-stories.addWithInfo(
-  'Single button',
-  () => (
+stories.add('Single button',
+  () =>
     <ButtonGroup>
       <Button>One</Button>
     </ButtonGroup>
-  )
 )
 
-stories.addWithInfo(
-  'Dropdown as content',
-  () => (
+stories.add('Dropdown as content',
+  () =>
     <ButtonGroup>
       <Button>One</Button>
       <Dropdown>
@@ -55,12 +45,10 @@ stories.addWithInfo(
         </Menu>
       </Dropdown>
     </ButtonGroup>
-  )
 )
 
-stories.addWithInfo(
-  'Justified',
-  () => (
+stories.add('Justified (Natural)',
+  () =>
     <ButtonGroup modifiers={[ 'justified' ]}>
       <Button>One</Button>
       <Button>Two</Button>
@@ -73,5 +61,20 @@ stories.addWithInfo(
         </Menu>
       </Dropdown>
     </ButtonGroup>
-  )
+)
+
+stories.add('Justified (Even)',
+  () =>
+    <ButtonGroup modifiers={[ 'justified-even' ]}>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+      <Dropdown text="Four">
+        <Menu>
+          <MenuItem text="One" />
+          <MenuItem text="Two" />
+          <MenuItem text="Three" />
+        </Menu>
+      </Dropdown>
+    </ButtonGroup>
 )

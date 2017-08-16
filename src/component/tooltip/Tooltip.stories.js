@@ -1,16 +1,12 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-// import { withKnobs, text } from '@storybook/addon-knobs'
 
 import Tooltip from './Tooltip'
 
 const stories = storiesOf('Tooltip', module)
 
-// stories.addDecorator(withKnobs)
-
-stories.addWithInfo(
-  'Standard',
-  () => (
+stories.add('Standard',
+  () =>
     <div>
       <Tooltip
         text="Here is example content which goes on for quite a while"
@@ -38,12 +34,10 @@ stories.addWithInfo(
       </p>
 
     </div>
-  )
 )
 
-stories.addWithInfo(
-  'Positions',
-  () => (
+stories.add('Positions',
+  () =>
     <div>
       <Tooltip text="Content">Default</Tooltip><hr />
       <Tooltip text="Content" valign="top" align="left">Top Left</Tooltip><hr />
@@ -51,5 +45,4 @@ stories.addWithInfo(
       <Tooltip text="Content" valign="bottom" align="left">Bottom Left</Tooltip><hr />
       <Tooltip text="Content" valign="bottom" align="right">Bottom Right</Tooltip>
     </div>
-  )
 )
