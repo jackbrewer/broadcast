@@ -21,7 +21,7 @@ import Rule from '../../asset/image/svg/rule.svg'
 import Text from '../../asset/image/svg/text.svg'
 import Video from '../../asset/image/svg/video.svg'
 
-const svgs = {
+export const svgs = {
   'arrow-down': ArrowDown,
   'arrow-left': ArrowLeft,
   'arrow-right': ArrowRight,
