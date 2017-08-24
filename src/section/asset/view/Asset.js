@@ -17,7 +17,7 @@ class AssetView extends Component {
   constructor () {
     super()
     this.state = {
-      overlayActive: false,
+      overlayActive: true,
       snackbarContent: {}
     }
     this.showOverlay = this.showOverlay.bind(this)
@@ -76,7 +76,7 @@ class AssetView extends Component {
         >
         <Panel>
           <Heading size="huge">Assets</Heading>
-          <List />
+          <List handleEdit={this.showOverlay} />
         </Panel>
         <Snackbar {...this.state.snackbarContent} />
       </Default>

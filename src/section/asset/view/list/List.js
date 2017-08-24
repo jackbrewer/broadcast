@@ -1,48 +1,26 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 // import { Link } from 'react-router-dom'
 
-import ImagePreview from '../../../../component/image-preview/ImagePreview'
+import Asset from '../../../../component/asset/Asset'
 // import ButtonGroup from '../../../../component/button-group/ButtonGroup'
 // import Button from '../../../../component/button/Button'
 // import Dropdown from '../../../../component/dropdown/Dropdown'
 // import Menu from '../../../../component/menu/Menu'
 // import MenuItem from '../../../../component/menu/MenuItem'
 
-const ListView = () => {
+const ListView = ({ handleEdit }) => {
   return (
     <div className="auto-grid">
       <div className="auto-grid__item">
-        <ImagePreview src="http://img.clock.co.uk/200x300" />
-      </div>
-      <div className="auto-grid__item">
-        <ImagePreview src="http://img.clock.co.uk/200x300" />
-      </div>
-      <div className="auto-grid__item">
-        <ImagePreview src="http://img.clock.co.uk/200x300" />
-      </div>
-      <div className="auto-grid__item">
-        <ImagePreview src="http://img.clock.co.uk/200x300" />
-      </div>
-      <div className="auto-grid__item">
-        <ImagePreview src="http://img.clock.co.uk/200x300" />
-      </div>
-      <div className="auto-grid__item">
-        <ImagePreview src="http://img.clock.co.uk/200x300" />
-      </div>
-      <div className="auto-grid__item">
-        <ImagePreview src="http://img.clock.co.uk/200x300" />
-      </div>
-      <div className="auto-grid__item">
-        <ImagePreview src="http://img.clock.co.uk/200x300" />
-      </div>
-      <div className="auto-grid__item">
-        <ImagePreview src="http://img.clock.co.uk/200x300" />
-      </div>
-      <div className="auto-grid__item">
-        <ImagePreview src="http://img.clock.co.uk/200x300" />
+        <Asset handleClick={handleEdit} />
       </div>
     </div>
   )
+}
+
+ListView.propTypes = {
+  handleEdit: PropTypes.func.isRequired
 }
 
 export default ListView

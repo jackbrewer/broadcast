@@ -1,9 +1,9 @@
 import React from 'react'
 
+import Button from '../../../../component/button/Button'
+import Field from '../../../../component/field/Field'
 import Form from '../../../../component/form/Form'
 import Heading from '../../../../component/heading/Heading'
-import Field from '../../../../component/field/Field'
-import Button from '../../../../component/button/Button'
 
 function handleSubmit (e, data) {
   e.preventDefault()
